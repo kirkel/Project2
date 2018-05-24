@@ -1,2 +1,6 @@
 # Project2
-lakljsdfkljakljsdfkjl
+Responsibilities:
+Sonam J. =>
+Kirk L. =>
+Adam L. =>
+David P. =>
