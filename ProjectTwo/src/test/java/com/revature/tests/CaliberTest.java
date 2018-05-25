@@ -11,32 +11,33 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import com.revature.driver.DriverFactory;
+import com.revature.pom.HomePage;
 
-public class CaliberSiteNavigationTest {
+public class CaliberTest {
 
 	WebDriver driver;
 	WebDriverWait wait;
+	HomePage home;
 	
 	@BeforeSuite
 	public void beforeSuite() {
 		driver = DriverFactory.getDriver("Chrome");
 		
-		// for any element, wait 3 seconds before determining a fail 
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		
-		// configure our drivers explicit wait as soon as it is instantiated 
-		// for a specific action, wait 4 seconds before determining a fail 
-		wait = new WebDriverWait(driver, 4);
+		wait = new WebDriverWait(driver, 1);
 	}
 	
 	@Test(priority=1)
 	public void navigateToCaliber() {
-		driver.get("https://dev-caliber.revature.tech/");
+		home = new HomePage(driver);
 	}
 
 	@Test(priority=2)
 	public void validateSuccessfulNavigationToCaliber() {
-		assertEquals("Caliber | Performance Management", driver.getTitle());
+		assertEquals("Caliber | Performance Management", home.getPageTitle());
 	}
 	
 	
