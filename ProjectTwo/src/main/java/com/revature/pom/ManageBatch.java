@@ -12,14 +12,27 @@ public class ManageBatch extends POM{
 		super(driver);
 	}	
 	
-	public WebElement createNewBatch() {
-		return driver.findElement(By.xpath("//*[@id=\"manage\"]/div[1]/div/div/ul/li[3]/a"));
+//	public WebElement fluentWait(final By locator) {
+//	    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+//	            .withTimeout(30, TimeUnit.SECONDS)
+//	            .pollingEvery(5, TimeUnit.SECONDS)
+//	            .ignoring(NoSuchElementException.class);
+//
+//	    WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
+//	        public WebElement apply(WebDriver driver) {
+//	            return driver.findElement(locator);
+//	        }
+//	    });
+//
+//	    return  foo;
+//	};
+	
+	public void createNewBatch() {
+		driver.findElement(By.xpath("//*[@id=\"manage\"]/div[1]/div/div/ul/li[3]")).click();
 	}
 	
-	
-	
-	public WebElement importBatch() {
-		return driver.findElement(By.xpath("//*[@id=\"manage\"]/div[1]/div/div/ul/li[2]/a"));
+	public void importBatch() {
+		driver.findElement(By.xpath("//*[@id=\"manage\"]/div[1]/div/div/ul/li[2]/a")).click();
 	}
 	
 	// -------------- Import Batch pop up --------------
@@ -38,8 +51,48 @@ public class ManageBatch extends POM{
 	
 	// -------------- Create New Batch pop up --------------
 	
-
+	public WebElement exitCreateNewBatch() {
+		return driver.findElement(By.xpath("//*[@id=\"createBatchModal\"]/div/div/div[1]/button"));
+	}
 	
+	public WebElement getIdSelector(String locator) {
+		return driver.findElement(By.xpath("//*[@id=\""+ locator + "\"]"));
+	}
+	
+	public WebElement getStartDateInput(){
+		return driver.findElement(By.xpath("//*[@id=\"start-date\"]/input"));
+	}
+	
+	public WebElement getStartDateIcon(){
+		return driver.findElement(By.xpath("//*[@id=\"start-date\"]/span"));
+	}
+	
+	public WebElement getEndDateInput() {
+		return driver.findElement(By.xpath("//*[@id=\"end-date\"]/input"));
+	}
+	
+	public WebElement getEndDateIcon() {
+		return driver.findElement(By.xpath("//*[@id=\"end-date\"]/span"));
+	}
+	
+	public WebElement getGoodGrade(){
+		return driver.findElement(By.xpath("//*[@id=\"goodGrade\"]"));
+	}
+	
+	public WebElement getPassingGrade(){
+		return driver.findElement(By.xpath("//*[@id=\"borderlineGrade\"]"));
+	}
+	
+	public WebElement saveCreateNewBatch() {
+		return driver.findElement(By.xpath("//*[@id=\"createBatchModal\"]/div/div/div[3]/input"));
+	}
+	
+	public WebElement closeCreateNewBatch() {
+		return driver.findElement(By.xpath("//*[@id=\"createBatchModal\"]/div/div/div[3]/button"));
+	}
+	
+	
+
 	
 }
 
