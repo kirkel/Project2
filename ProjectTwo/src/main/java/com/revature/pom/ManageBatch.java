@@ -55,10 +55,30 @@ public class ManageBatch extends POM{
 		return driver.findElement(By.xpath("//*[@id=\"createBatchModal\"]/div/div/div[1]/button"));
 	}
 	
-	public WebElement getIdSelector(String locator) {
-		return driver.findElement(By.xpath("//*[@id=\""+ locator + "\"]"));
+	public WebElement getTrainingName(){
+		return driver.findElement(By.xpath("//*[@id=\"trainingName\"]"));
 	}
 	
+	public WebElement getTrainingType(){
+		return driver.findElement(By.xpath("//*[@id=\"trainingType\"]"));
+	}
+	
+	public WebElement getSkillType(){
+		return driver.findElement(By.xpath("//*[@id=\"skillType\"]"));
+	}
+	
+	public WebElement getLocation(){
+		return driver.findElement(By.xpath("//*[@id=\"location\"]"));
+	}
+	
+	public WebElement getTrainer(){
+		return driver.findElement(By.xpath("//*[@id=\"trainer\"]"));
+	}
+	
+	public WebElement getCoTrainer(){
+		return driver.findElement(By.xpath("//*[@id=\"co-trainer\"]"));
+	}
+
 	public WebElement getStartDateInput(){
 		return driver.findElement(By.xpath("//*[@id=\"start-date\"]/input"));
 	}
