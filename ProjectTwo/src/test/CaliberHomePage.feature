@@ -12,6 +12,9 @@ Feature: Test all links on the home page
 		Then the user clicks on assess batch and back home
 		Then the user clicks on reports and back home
 		Then the user clicks on user guide and back home
+		Then the user clicks on the phone number 
+		Then the user clicks on the email 
+		Then the user clicks on the Revature link and returns back home
 		
 		
 		
