@@ -10,18 +10,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.revature.driver.DriverFactory;
 import com.revature.pom.HomePage;
-import com.revature.pom.ManageBatch;
 
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
+import cucumber.api.java.en.Then;
 
 public class CaliberHomePage {
 
 	WebDriver driver;
 	WebDriverWait wait;
 	HomePage home;
-	ManageBatch manageBatch;
 	
 	@Given("^a user opens a web browser$")
 	public void a_user_opens_a_web_browser() throws Throwable {
@@ -40,12 +38,50 @@ public class CaliberHomePage {
 		assertEquals("Caliber | Performance Management", home.getPageTitle());
 	}
 	
-	@When("^a user clicks on the Manage Batch button$")
-	public void a_user_clicks_on_the_Manage_Batch_button() throws Throwable {
-		home.getManageBatchButton();
+	@Then("^the user should see the home page$")
+	public void the_user_should_see_the_home_page() throws Throwable {
+		// The below will qualify for any given page! This is not what we want! 
+		// ***** NEED MORE ROBUST TEST HERE *****
+		//assertEquals("Caliber | Performance Management", home.getPageTitle());
+		
+		
 	}
 	
-	
+	@Then("^the user clicks on the Revature logo$")
+	public void the_user_clicks_on_the_Revature_logo() throws Throwable {
+		home.getLogoButton();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.HOURS);
+		wait = new WebDriverWait(driver, 10);
+	}
+
+	@Then("^the user clicks on the home button$")
+	public void the_user_clicks_on_the_home_button() throws Throwable {
+		home.getHomeButton();
+	}
+
+	@Then("^the user clicks on manage batch and back home$")
+	public void the_user_clicks_on_manage_batch_and_back_home() throws Throwable {		
+		home.getManageBatchButton();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.HOURS);
+		wait = new WebDriverWait(driver, 10);
+		driver.navigate().back();
+		// assert home
+	}
+
+	@Then("^the user clicks on assess batch and back home$")
+	public void the_user_clicks_on_assess_batch_and_back_home() throws Throwable {
+		
+	}
+
+	@Then("^the user clicks on reports and back home$")
+	public void the_user_clicks_on_reports_and_back_home() throws Throwable {
+		
+	}
+
+	@Then("^the user clicks on user guide and back home$")
+	public void the_user_clicks_on_user_guide_and_back_home() throws Throwable {
+		
+	}
 	
 	@After  
 	public void shutdowndriver() {
