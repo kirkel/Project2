@@ -28,7 +28,7 @@ public class CaliberHomePage {
 		
 		// Need to wait for homepage to load; could be written better!
 		// not supposed to have a timer or timeout, but this functions for now 
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.HOURS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		wait = new WebDriverWait(driver, 10);
 	}
 	
@@ -42,45 +42,69 @@ public class CaliberHomePage {
 	public void the_user_should_see_the_home_page() throws Throwable {
 		// The below will qualify for any given page! This is not what we want! 
 		// ***** NEED MORE ROBUST TEST HERE *****
-		//assertEquals("Caliber | Performance Management", home.getPageTitle());
-		
-		
+		assertEquals("Caliber | Performance Management", home.getPageTitle());
 	}
 	
 	@Then("^the user clicks on the Revature logo$")
 	public void the_user_clicks_on_the_Revature_logo() throws Throwable {
 		home.getLogoButton();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.HOURS);
-		wait = new WebDriverWait(driver, 10);
+		Thread.sleep(1000);
 	}
 
 	@Then("^the user clicks on the home button$")
 	public void the_user_clicks_on_the_home_button() throws Throwable {
 		home.getHomeButton();
+		Thread.sleep(1000);
 	}
 
 	@Then("^the user clicks on manage batch and back home$")
 	public void the_user_clicks_on_manage_batch_and_back_home() throws Throwable {		
 		home.getManageBatchButton();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.HOURS);
-		wait = new WebDriverWait(driver, 10);
+		Thread.sleep(1000);
 		driver.navigate().back();
 		// assert home
 	}
 
 	@Then("^the user clicks on assess batch and back home$")
 	public void the_user_clicks_on_assess_batch_and_back_home() throws Throwable {
-		
+		home.getAssessBatchButton();
+		Thread.sleep(1000);
+		driver.navigate().back();
 	}
 
 	@Then("^the user clicks on reports and back home$")
 	public void the_user_clicks_on_reports_and_back_home() throws Throwable {
-		
+		home.getReportsButton();
+		Thread.sleep(1000);
+		driver.navigate().back();
 	}
 
 	@Then("^the user clicks on user guide and back home$")
 	public void the_user_clicks_on_user_guide_and_back_home() throws Throwable {
-		
+		home.getUserGuide();
+		Thread.sleep(1000);
+		driver.navigate().back();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		wait = new WebDriverWait(driver, 10);
+	}
+	
+	@Then("^the user clicks on the phone number$")
+	public void the_user_clicks_on_the_phone_number() throws Throwable {
+		home.getPhoneNumber();
+		Thread.sleep(1000);
+	}
+
+	@Then("^the user clicks on the email$")
+	public void the_user_clicks_on_the_email() throws Throwable {
+		home.getEmail();
+		Thread.sleep(1000);
+	}
+
+	@Then("^the user clicks on the Revature link and returns back home$")
+	public void the_user_clicks_on_the_Revature_link_and_returns_back_home() throws Throwable {
+		home.getRevatureLink();
+		Thread.sleep(1000);
+		driver.close();
 	}
 	
 	@After  
