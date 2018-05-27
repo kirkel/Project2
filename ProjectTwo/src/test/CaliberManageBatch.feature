@@ -20,3 +20,17 @@
 #		Examples:
 #			|training_name	|training_type	|skill_type	|location	|trainer	|cotrainer	|start_day|start_month|start_year	|end_day|end_month|end_year	|grade_good	|grade_passing|
 #			|neatbatch			|Revature				|JTA				|NY				|Name			|123				|1				|1					|2017				|2			|2				|2017			|80					| 80|
+
+Feature: Test all the links on the manage batch page 
+
+	Background:
+		Given a user opens a web browser to visit the Caliber website
+		And the user is on the home page for the first time
+		Then the user should see the home page
+		And the user clicks on manage batch		
+		And the user is on the manage batch page for the first time
+		Then the user should see the manage batch page
+		
+	Scenario:
+		And the user clicks on the Revature logo
+		Then the user should see the home page

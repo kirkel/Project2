@@ -11,7 +11,7 @@ public class ManageBatch extends POM{
 	public ManageBatch(WebDriver driver) {
 		super(driver);
 	}	
-	
+		
 //	public WebElement fluentWait(final By locator) {
 //	    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
 //	            .withTimeout(30, TimeUnit.SECONDS)
@@ -28,7 +28,7 @@ public class ManageBatch extends POM{
 //	};
 	
 	public void createNewBatch() {
-		driver.findElement(By.xpath("//*[@id=\"manage\"]/div[1]/div/div/ul/li[3]")).click();
+		driver.findElement(By.xpath("//*[@id=\"manage\"]/div[1]/div/div/ul/li[3]/a")).click();
 	}
 	
 	public void importBatch() {
