@@ -6,6 +6,7 @@ Feature: Test all links on the home page
 		Then the user should see the home page
 
 	Scenario:
+		# ----------- Header link checks -----------
 		And the user clicks on the Revature logo
 		Then the user should see the home page
 		
@@ -26,17 +27,22 @@ Feature: Test all links on the home page
 		Then the user should see the reports page
 		And the user returns back to the previous page 
 		Then the user should see the home page
+		
+		
+		# ----------- Footer link checks -----------
+		And the user clicks on the phone number 		
+		And the user clicks on the email 
+		And the user clicks on the Revature link and returns to the previous page
 		 
+		 
+		# ----------- Unique links and buttons checks -----------
 		And the user clicks on user guide
 		Then the user should see the github page for Caliber
 		And the user returns back to the previous page 
 		Then the user should see the home page
 		
-		And the user clicks on the phone number 		
-		And the user clicks on the email 
 		
-		And the user clicks on the Revature link and returns to the previous page
-		
+		# ----------- Canvas Elements Checks -----------
 		And the user clicks on the HTML5 Canvas element Cumulative Scores
 		And the user clicks on the HTML5 Canvas element Technical Skills
 		

@@ -19,18 +19,18 @@ public class CaliberHomePage {
 	public void the_user_is_on_the_home_page_for_the_first_time() throws Throwable {
 		home = new HomePage(CaliberGeneralGlueCode.driver);
 	}
-	
-	@Then("^the user should see the home page$")
-	public void the_user_should_see_the_home_page() throws Throwable {
-		assertEquals("Welcome to Caliber!", CaliberHomePage.home.getWelcomeHome().getText());
-	}
-
 
 	@Then("^the user clicks on user guide$")
 	public void the_user_clicks_on_user_guide() throws Throwable {
 		home.getUserGuide();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 	}
+	
+	@Then("^the user should see the github page for Caliber$")
+	public void the_user_should_see_the_github_page_for_Caliber() throws Throwable {
+		assertEquals("https://github.com/revaturelabs/caliber/wiki#user-guide", CaliberGeneralGlueCode.driver.getCurrentUrl().toString());
+	}
+	
 	@Then("^the user clicks on the HTML(\\d+) Canvas element Cumulative Scores$")
 	public void the_user_clicks_on_the_HTML_Canvas_element_Cumulative_Scores(int arg1) throws Throwable {
 		Actions builder = new Actions(CaliberGeneralGlueCode.driver);
@@ -45,28 +45,28 @@ public class CaliberHomePage {
 		
 		// clicks on the first bar graph
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,400).click().build().perform();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,400).click().build().perform();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		
 		// clicks on the second bar graph
 //		System.out.println("Clicking on second bar graph");
 //		builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,600).click().build().perform();
-//		Thread.sleep(1000);
+//		Thread.sleep(500);
 //		builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,600).click().build().perform();
-//		Thread.sleep(1000);
+//		Thread.sleep(500);
 		
 		// clicks on the Benchmark
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),465,13).click().build().perform();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),465,13).click().build().perform();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		
 		// clicks on the Batch scores
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),550,13).click().build().perform();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),550,13).click().build().perform();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 	}
 
 	@Then("^the user clicks on the HTML(\\d+) Canvas element Technical Skills$")
