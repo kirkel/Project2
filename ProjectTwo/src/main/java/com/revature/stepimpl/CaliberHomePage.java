@@ -5,7 +5,9 @@ import static org.testng.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.revature.driver.DriverFactory;
@@ -102,9 +104,48 @@ public class CaliberHomePage {
 
 	@Then("^the user clicks on the Revature link and returns back home$")
 	public void the_user_clicks_on_the_Revature_link_and_returns_back_home() throws Throwable {
+		String winHandleBefore = driver.getWindowHandle();
 		home.getRevatureLink();
+		Thread.sleep(2000);
+		driver.switchTo().window(winHandleBefore);
+		Thread.sleep(2000);
+	}
+	
+	@Then("^the user clicks on the benchmark on the HTML(\\d+) Canvas element$")
+	public void the_user_clicks_on_the_benchmark_on_the_HTML_Canvas_element(int arg1) throws Throwable {
+		Actions builder = new Actions(driver);
+//		for(int i = 0; i < 646; i++) {
+//			for(int j = 0; j < 30; j++) {
+//				builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),i,j).click().build().perform();
+//				System.out.println("i = " + i + ", j = " + j);
+//				Thread.sleep(10);
+//			}
+//		}
+		System.out.println("Clicking on first bar graph");
 		Thread.sleep(1000);
-		driver.close();
+		builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,125).click().build().perform();
+		Thread.sleep(1000);
+		builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,125).click().build().perform();
+		
+		System.out.println("Clicking on second bar graph");
+		Thread.sleep(1000);
+		builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,400).click().build().perform();
+		Thread.sleep(1000);
+		builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,400).click().build().perform();
+		
+		System.out.println("Clicking on Benchmarks");
+		Thread.sleep(1000);
+		builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),210,15).click().build().perform();
+		Thread.sleep(1000);
+		builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),210,15).click().build().perform();
+		
+		System.out.println("Clicking on Batch Scores");
+		Thread.sleep(1000);
+		builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),321,15).click().build().perform();
+		Thread.sleep(1000);
+		builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),321,15).click().build().perform();
+		
+		Thread.sleep(2000);
 	}
 	
 	@After  

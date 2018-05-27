@@ -15,6 +15,6 @@ Feature: Test all links on the home page
 		Then the user clicks on the phone number 
 		Then the user clicks on the email 
 		Then the user clicks on the Revature link and returns back home
-		
+		Then the user clicks on the benchmark on the HTML5 Canvas element
 		
 		
