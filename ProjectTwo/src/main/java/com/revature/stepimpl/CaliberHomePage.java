@@ -5,6 +5,8 @@ import static org.testng.Assert.assertEquals;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.revature.pom.HomePage;
 
@@ -23,12 +25,14 @@ public class CaliberHomePage {
 	@Then("^the user clicks on user guide$")
 	public void the_user_clicks_on_user_guide() throws Throwable {
 		home.getUserGuide();
-		Thread.sleep(500);
 	}
 	
 	@Then("^the user should see the github page for Caliber$")
 	public void the_user_should_see_the_github_page_for_Caliber() throws Throwable {
+		WebDriverWait wait = new WebDriverWait(CaliberGeneralGlueCode.driver, 20);
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("js-repo-pjax-container")));
 		assertEquals("https://github.com/revaturelabs/caliber/wiki#user-guide", CaliberGeneralGlueCode.driver.getCurrentUrl().toString());
+		
 	}
 	
 	@Then("^the user clicks on the HTML(\\d+) Canvas element Cumulative Scores$")
@@ -53,15 +57,12 @@ public class CaliberHomePage {
 		
 		// clicks on the Benchmark
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),465,13).click().build().perform();
-		Thread.sleep(500);
-		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),465,13).click().build().perform();
-		Thread.sleep(500);
-		
 		// clicks on the Batch scores
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),550,13).click().build().perform();
-		Thread.sleep(500);
+		// clicks on the Benchmark
+		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),465,13).click().build().perform();
+		// clicks on the Batch scores
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),550,13).click().build().perform();
-		Thread.sleep(500);
 	}
 
 	@Then("^the user clicks on the HTML(\\d+) Canvas element Technical Skills$")
