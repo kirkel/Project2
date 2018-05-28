@@ -39,8 +39,33 @@ Feature: Test all the links on the manage batch page
 		
 		
 		# ----------- Unique links and buttons checks -----------
+		#testing create a batch for a given year
+#		Given the year <start_year> is between 2016 and 2019
+#		And the user selects a year <start_year> for the batch
+		
 		
 		
 		# ----------- Canvas Elements Checks -----------
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
