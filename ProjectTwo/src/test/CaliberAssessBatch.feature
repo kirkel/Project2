@@ -40,5 +40,43 @@ Feature: Test all links on the Assess Batch page
 		
 		
 		# ----------- Unique links and buttons checks -----------
+#		# secondary header button check
+#		And the user picks an assessment manager "<assessment_manager>"
+#		Given the assessment manager "<assessment_manager>" is a valid selection
+#		Then the user should see data
+#		
+#		And the user picks a year <assessment_year_dropdown> from the dropdown 
+#		Given the year <assessment_year_dropdown> is 2018
+#		Then the user should see data
+#		
+#		Given the week <assessment_week_pick> is a valid selection
+#		And the user picks a week <assessment_week_pick>
+#		Then the user should see data
+#		
+#		
+#		
+#		# adding new data into the table 
+#		
+#		# add new week
+#		And the user adds a new week
+#		Then the user should see the new week selection on the table
+#		Given the trainees "<trainees>" are valid input
+#		And the user adds data for notes "<assessment_notes>" for all trainees "<trainees>" and overall feedback "<assessment_feedback>"
+#		Then the user saves the table
+#		Then the user should see data
+#		Then the user should see the new notes "<assessment_notes>" for all trainees "<trainees>" and overall feedback "<assessment_feedback>"
+#		
+#		Given the week <assessment_week_newassessment> is a valid selection
+#		And the user creates an assessment for a week <assessment_week_newassessment>
+#		Given the assessment "<assessments>" with category "<assessment_category>" and max points <max_points> and assessment type "<assessment_type>" are valid input 
+#		And the user chooses an assessment category "<assessment_category>" and max points <max_points> and an assessment type "<assessment_type>"
+#		Then the user should see data
+#		Then the user should see the correctly calculated percentage header for all "<assessments>" 
+#		
+#		Then the user adds in scores for assessments "<assessments>"
+		
+		
+		
+		
 		
 		
