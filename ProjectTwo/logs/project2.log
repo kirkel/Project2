@@ -71,3 +71,13 @@
 2018-05-27 21:23:15 DEBUG wire:73 - http-outgoing-0 >> "[\r][\n]"
 2018-05-27 21:23:15 DEBUG wire:87 - http-outgoing-0 >> "{"windowHandle":"current","handle":"current"}"
 2018-05-27 21:24:13 WARN  LogHere:27 - Neat
+2018-05-27 23:45:24 WARN  LogHere:27 - Neat
+2018-05-27 23:51:56 WARN  LogHere:27 - Neat
+2018-05-28 11:33:31 WARN  LogHere:27 - Neat
+2018-05-28 11:56:28 WARN  LogHere:27 - Neat
+2018-05-28 11:57:24 WARN  LogHere:27 - Neat
+2018-05-28 12:00:28 WARN  LogHere:27 - Neat
+2018-05-28 12:08:28 WARN  LogHere:27 - Neat
+2018-05-28 12:17:57 WARN  LogHere:27 - Neat
+2018-05-28 12:24:10 WARN  LogHere:27 - Neat
+2018-05-28 12:24:37 WARN  LogHere:27 - Neat
