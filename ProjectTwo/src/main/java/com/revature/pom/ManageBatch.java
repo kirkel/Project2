@@ -11,21 +11,6 @@ public class ManageBatch extends POM{
 	public ManageBatch(WebDriver driver) {
 		super(driver);
 	}	
-		
-//	public WebElement fluentWait(final By locator) {
-//	    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-//	            .withTimeout(30, TimeUnit.SECONDS)
-//	            .pollingEvery(5, TimeUnit.SECONDS)
-//	            .ignoring(NoSuchElementException.class);
-//
-//	    WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
-//	        public WebElement apply(WebDriver driver) {
-//	            return driver.findElement(locator);
-//	        }
-//	    });
-//
-//	    return  foo;
-//	};
 	
 	public void createNewBatch() {
 		driver.findElement(By.xpath("//*[@id=\"manage\"]/div[1]/div/div/ul/li[3]/a")).click();

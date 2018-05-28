@@ -1,4 +1,4 @@
-package com.revature.hibernate.entity;
+package com.revature.hibernate.enums;
 
 public enum TrainingLocation {
 

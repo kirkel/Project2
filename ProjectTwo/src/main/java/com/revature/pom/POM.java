@@ -24,22 +24,6 @@ public class POM {
 		return driver.getTitle();
 	}
 	
-	// Gets a valid dropdown selection from any given dropdown menu
-	// input => what the selection should be from the dropdwon
-	// locator => the name of the dropdown options 
-//	public void dropdownSelection(String input, String locator) {
-//		List<WebElement> listOfElements = driver.findElements(By.xpath("//select[@name='" + locator + "']/option"));
-//		Select select = new Select(driver.findElement(By.name(locator)));
-//		
-//		for(WebElement el : listOfElements) {
-//			if(el.getText().equals(input)) {
-//				select.selectByVisibleText(input);
-//				return;
-//			}
-//		}
-//		throw new IllegalArgumentException(select + " is not a valid selection");
-//	}
-	
 	// -------------- Header --------------
 	
 	public void getLogoButton() {
@@ -76,4 +60,44 @@ public class POM {
 	public void getRevatureLink() {
 		driver.findElement(By.xpath("/html/body/footer/div/div/div/div[2]/a[3]")).click();
 	}
+	
+	
+	
+	
+	// Gets a valid dropdown selection from any given dropdown menu
+	// input => what the selection should be from the dropdown
+	// locator => the name of the dropdown options 
+//	public void dropdownSelection(String input, String locator) {
+//		List<WebElement> listOfElements = driver.findElements(By.xpath("//select[@name='" + locator + "']/option"));
+//		Select select = new Select(driver.findElement(By.name(locator)));
+//		
+//		for(WebElement el : listOfElements) {
+//			if(el.getText().equals(input)) {
+//				select.selectByVisibleText(input);
+//				return;
+//			}
+//		}
+//		throw new IllegalArgumentException(select + " is not a valid selection");
+//	}
+	
+	
+	
+	// creates a fluent wait
+	// has to be tweaked before it can work
+//	public WebElement fluentWait(final By locator) {
+//    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+//            .withTimeout(30, TimeUnit.SECONDS)
+//            .pollingEvery(5, TimeUnit.SECONDS)
+//            .ignoring(NoSuchElementException.class);
+//
+//    WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
+//        public WebElement apply(WebDriver driver) {
+//            return driver.findElement(locator);
+//        }
+//    });
+//
+//    return  foo;
+//};
+	
+	
 }

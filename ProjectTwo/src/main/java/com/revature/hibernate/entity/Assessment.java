@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.revature.hibernate.enums.AssessmentCategory;
+import com.revature.hibernate.enums.AssessmentType;
+
 @Entity
 @Table(name="Assessment")
 public class Assessment{
@@ -47,6 +50,16 @@ public class Assessment{
 		this.type = type;
 	}
 	
+	
+	
+	public int getAssessment_Id() {
+		return Assessment_Id;
+	}
+
+	public void setAssessment_Id(int assessment_Id) {
+		Assessment_Id = assessment_Id;
+	}
+
 	public AssessmentCategory getCategory() {
 		return category;
 	}

@@ -14,6 +14,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import com.revature.hibernate.enums.SkillType;
+import com.revature.hibernate.enums.TrainingLocation;
+
 @Entity
 @Table(name="Batch")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
@@ -87,6 +90,15 @@ public class Batch{
 		this.end_year = end_year;
 		this.goodGrade = goodGrade;
 		this.passingGrade = passingGrade;
+	
+	}
+	
+	
+	public int getBatch_Id() {
+		return Batch_Id;
+	}
+	public void setBatch_Id(int batch_Id) {
+		Batch_Id = batch_Id;
 	}
 	public String getTrainingName() {
 		return trainingName;
@@ -166,6 +178,9 @@ public class Batch{
 	public void setPassingGrade(float passingGrade) {
 		this.passingGrade = passingGrade;
 	}
+	
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

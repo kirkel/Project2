@@ -37,24 +37,19 @@ public class CaliberHomePage {
 		
 		// The code below will click on every pixel on the entire Cumulative Scores graph 
 //		for(int i = 1; i < 646; i++) {
-//			for(int j = 1; j < 360; j++) {
+//			for(int j = 1; j < 323; j++) {
 //				builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),i,j).click().build().perform();
 //				System.out.println("i = " + i + ", j = " + j);
 //			}
 //		}
 		
-		// clicks on the first bar graph
-		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,400).click().build().perform();
-		Thread.sleep(500);
-		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,400).click().build().perform();
-		Thread.sleep(500);
 		
-		// clicks on the second bar graph
-//		System.out.println("Clicking on second bar graph");
-//		builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,600).click().build().perform();
+		// clicks on the first bar graph
+//		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,400).click().build().perform();
 //		Thread.sleep(500);
-//		builder.moveToElement(driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,600).click().build().perform();
+//		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,400).click().build().perform();
 //		Thread.sleep(500);
+		
 		
 		// clicks on the Benchmark
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),465,13).click().build().perform();

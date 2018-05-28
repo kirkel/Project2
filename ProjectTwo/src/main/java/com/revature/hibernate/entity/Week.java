@@ -28,6 +28,16 @@ public class Week{
 
 	public Week() {}
 	
+	
+	
+	public int getWeek_Id() {
+		return Week_Id;
+	}
+
+	public void setWeek_Id(int week_Id) {
+		Week_Id = week_Id;
+	}
+
 	public String getOverallFeedback() {
 		return overallFeedback;
 	}

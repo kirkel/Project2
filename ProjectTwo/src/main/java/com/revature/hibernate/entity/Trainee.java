@@ -15,6 +15,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import com.revature.hibernate.enums.FlagColor;
+import com.revature.hibernate.enums.TrainingStatus;
 @Entity
 @Table(name="Trainee")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
@@ -106,6 +109,14 @@ public class Trainee{
 		this.techScreenerName = techScreenerName;
 		this.projectCompletion = projectCompletion;
 		this.profileUrl = profileUrl;
+	}
+
+	public int getTrainee_Id() {
+		return Trainee_Id;
+	}
+
+	public void setTrainee_Id(int trainee_Id) {
+		Trainee_Id = trainee_Id;
 	}
 
 	public String getFullName() {
