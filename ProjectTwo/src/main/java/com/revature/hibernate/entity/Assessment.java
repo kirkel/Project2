@@ -1,16 +1,9 @@
 package com.revature.hibernate.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.revature.hibernate.enums.AssessmentCategory;
@@ -34,12 +27,12 @@ public class Assessment{
 	@Column(name="type")
 	AssessmentType type;
 	
-	@ManyToOne(cascade= {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
-	@JoinColumn(name="Assessment_Id")
-	private Week week;
+//	@ManyToOne(cascade= {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
+//	@JoinColumn(name="Assessment_Id")
+//	private Week week;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="AssessmentScore")
-	private List<AssessmentScore> assessmentScores = new ArrayList<>();
+//	@OneToMany(cascade=CascadeType.ALL, mappedBy="AssessmentScore")
+//	private List<AssessmentScore> assessmentScores = new ArrayList<>();
 	
 	public Assessment() {}
 	

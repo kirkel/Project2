@@ -1,17 +1,9 @@
 package com.revature.hibernate.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,15 +18,15 @@ public class AssessmentScore{
 	@Column(name="score")
 	float score;
 	
-	@ManyToOne(cascade= {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
-	@JoinColumn(name="Assessment_Id")
-	private Assessment assessment;
-	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="AssessmentScore_Trainee", 
-				joinColumns={ @JoinColumn(name="AssessmentScore_Id")},
-				inverseJoinColumns={ @JoinColumn(name="Trainee_Id") } )
-	List<Trainee> trainee = new ArrayList<>();
+//	@ManyToOne(cascade= {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
+//	@JoinColumn(name="Assessment_Id")
+//	private Assessment assessment;
+//	
+//	@ManyToMany(cascade=CascadeType.ALL)
+//	@JoinTable(name="AssessmentScore_Trainee", 
+//				joinColumns={ @JoinColumn(name="AssessmentScore_Id")},
+//				inverseJoinColumns={ @JoinColumn(name="Trainee_Id") } )
+//	List<Trainee> trainee = new ArrayList<>();
 	
 	public AssessmentScore() {}
 
@@ -53,13 +45,15 @@ public class AssessmentScore{
 	public void setScore(float score) {
 		this.score = score;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + AssessmentScore_Id;
 		result = prime * result + Float.floatToIntBits(score);
-		result = prime * result + ((trainee == null) ? 0 : trainee.hashCode());
 		return result;
 	}
 
@@ -72,12 +66,9 @@ public class AssessmentScore{
 		if (getClass() != obj.getClass())
 			return false;
 		AssessmentScore other = (AssessmentScore) obj;
-		if (Float.floatToIntBits(score) != Float.floatToIntBits(other.score))
+		if (AssessmentScore_Id != other.AssessmentScore_Id)
 			return false;
-		if (trainee == null) {
-			if (other.trainee != null)
-				return false;
-		} else if (!trainee.equals(other.trainee))
+		if (Float.floatToIntBits(score) != Float.floatToIntBits(other.score))
 			return false;
 		return true;
 	}
