@@ -1,0 +1,20 @@
+package com.revature.hibernate.enums;
+
+public enum SkillType {
+
+	J2EE,
+	NET,
+	SDET,
+	BPM,
+	APPIANBPM,
+	PEGABPM,
+	MICROSOFTDYNAMICS365,
+	JTA,
+	MICROSERVICES,
+	ORACLEFUSION,
+	SALESFORCE,
+	BUSINESSANALYST,
+	SYSTEMADMIN,
+	QA,
+	OTHER
+}
