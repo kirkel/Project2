@@ -5,6 +5,7 @@
 		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 
+
 		<!-- One optional property I want to provide -->
 		<property name="hibernate.show_sql">true</property>
 
@@ -15,7 +16,7 @@
 		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
 		
 		<!-- Tells Hibernate the location of the ehcache.xml configuration file -->
-		<property name="net.sf.ehcache.configurationResourceName">/ehcache.xml</property>
+		<property name="net.sf.ehcache.configurationResourceName">ehcache.xml</property>
 
 		<!-- For annotated files, use the attribute 'class' -->
 		<mapping class="com.revature.hibernate.entity.Assessment"></mapping>

@@ -1,14 +1,9 @@
 package com.revature.hibernate.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -16,6 +11,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.revature.hibernate.enums.SkillType;
 import com.revature.hibernate.enums.TrainingLocation;
+import com.revature.hibernate.enums.TrainingType;
 
 @Entity
 @Table(name="Batch")
@@ -32,6 +28,9 @@ public class Batch{
 	
 	@Column(name="trainingLocation")
 	TrainingLocation trainingLocation;
+	
+	@Column(name="trainingType")
+	TrainingType trainingType;
 	
 	@Column(name="skillType")
 	SkillType skillType;
@@ -66,8 +65,8 @@ public class Batch{
 	@Column(name="passingGrade")
 	float passingGrade;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="Trainee")
-	private List<Trainee> trainees = new ArrayList<>();
+//	@OneToMany(cascade=CascadeType.ALL, mappedBy="Trainee")
+//	private List<Trainee> trainees = new ArrayList<>();
 	
 	public Batch(String trainingName) {
 		super();
@@ -111,6 +110,12 @@ public class Batch{
 	}
 	public void setTrainingLocation(TrainingLocation trainingLocation) {
 		this.trainingLocation = trainingLocation;
+	}
+	public TrainingType getTrainingType() {
+		return trainingType;
+	}
+	public void setTrainingType(TrainingType trainingType) {
+		this.trainingType = trainingType;
 	}
 	public SkillType getSkillType() {
 		return skillType;

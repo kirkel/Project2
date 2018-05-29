@@ -107,6 +107,9 @@ public class CaliberGeneralGlueCode {
 	public void the_user_clicks_on_the_Revature_link_and_returns_to_the_previous_page() throws Throwable {
 		pom.getRevatureLink();
 		
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+		
 		Set<String> windows = driver.getWindowHandles();
 		Object[] windowsarray = windows.toArray();
 		
