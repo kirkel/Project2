@@ -2,7 +2,6 @@ package com.revature.stepimpl;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
-import static org.testng.Assert.assertTrue;
 
 import java.time.LocalDate;
 import java.util.concurrent.TimeUnit;
@@ -16,10 +15,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.revature.hibernate.enums.SkillType;
 import com.revature.hibernate.enums.TrainingType;
+import com.revature.logs.LogHere;
 import com.revature.pom.ManageBatch;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class CaliberManageBatch {
 
@@ -35,7 +36,7 @@ public class CaliberManageBatch {
 	@Then("^the user clicks on the import batch button$")
 	public void the_user_clicks_on_the_import_batch_button() throws Throwable {
 		Thread.sleep(1000);
-		manageBatch.importBatch();
+		manageBatch.importBatch().click();
 	}
 
 	@Then("^the user should see the import batch screen$")
@@ -48,20 +49,20 @@ public class CaliberManageBatch {
 	@Then("^the user clicks on the X button on the import batch screen$")
 	public void the_user_clicks_on_the_X_button_on_the_import_batch_screen() throws Throwable {
 		Thread.sleep(1000);
-		manageBatch.exitImportBatch();
+		manageBatch.exitImportBatch().click();
 	}
 
 	@Then("^the user imports a batch$")
 	public void the_user_imports_a_batch() throws Throwable {
 		Thread.sleep(1000);
-		manageBatch.getImportBatchDropdown();
+		manageBatch.getWebElementWithId("importId").click();
 		Thread.sleep(1000);
-		manageBatch.getImportBatchDropdown();
+		manageBatch.getWebElementWithId("importId").click();
 	}
 
 	@Then("^the user clicks on the close import batch$")
 	public void the_user_clicks_on_the_close_import_batch() throws Throwable {
-		manageBatch.closeImportBatch();
+		manageBatch.closeImportBatch().click();
 	}
 
 	
@@ -70,7 +71,7 @@ public class CaliberManageBatch {
 	@Then("^the user clicks on create batch$")
 	public void the_user_clicks_on_create_batch() throws Throwable {
 		Thread.sleep(500);
-		manageBatch.createNewBatch();
+		manageBatch.createNewBatch().click();
 		Thread.sleep(500);
 	}
 
@@ -85,7 +86,7 @@ public class CaliberManageBatch {
 	@Then("^the user clicks on the X button on the create batch screen$")
 	public void the_user_clicks_on_the_X_button_on_the_create_batch_screen() throws Throwable {
 		Thread.sleep(500);
-		manageBatch.exitCreateNewBatch();
+		manageBatch.exitCreateNewBatch().click();
 	}
 
 	// implement hover text check
@@ -96,12 +97,12 @@ public class CaliberManageBatch {
 
 	@Then("^the user clicks on the close create batch$")
 	public void the_user_clicks_on_the_close_create_batch() throws Throwable {
-		manageBatch.closeCreateNewBatch();
+		manageBatch.closeCreateNewBatch().click();
 	}
 
 	@Given("^the user clicks on save in create batch$")
 	public void the_user_clicks_on_save_in_create_batch() throws Throwable {
-		manageBatch.saveCreateNewBatch();
+		manageBatch.saveCreateNewBatch().click();
 		Thread.sleep(1000);
 	}
 	
@@ -149,7 +150,7 @@ public class CaliberManageBatch {
 				throw new InvalidSelectorException("Year is not valid. Must be between 2016 and 2019");
 			}
 		} catch(InvalidSelectorException ise) {
-//			LogHere.warn(ise.getMessage());
+			LogHere.warn(ise.getMessage());
 		}
 	}
 	
@@ -195,39 +196,39 @@ public class CaliberManageBatch {
 	
 	@Given("^the user adds a good grade \"([^\"]*)\"$")
 	public void the_user_adds_a_good_grade(String arg1) throws Throwable {
-		manageBatch.getGoodGrade().sendKeys(arg1);
+		manageBatch.getWebElementWithId("goodGrade").sendKeys(arg1);
 	}
 
 	@Given("^the user adds a passing grade \"([^\"]*)\"$")
 	public void the_user_adds_a_passing_grade(String arg1) throws Throwable {
 		CaliberGeneralGlueCode.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	    manageBatch.getPassingGrade().sendKeys(Keys.CONTROL + "a");
-	    manageBatch.getPassingGrade().sendKeys(Keys.DELETE);
-	    manageBatch.getPassingGrade().sendKeys(arg1);
+	    manageBatch.getWebElementWithId("borderlineGrade").sendKeys(Keys.CONTROL + "a");
+	    manageBatch.getWebElementWithId("borderlineGrade").sendKeys(Keys.DELETE);
+	    manageBatch.getWebElementWithId("borderlineGrade").sendKeys(arg1);
 	}
 
 	@Then("^the user adds a start date \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void the_user_adds_a_start_date(String month, String day, String year) throws Throwable {
 		String startDate = "";
 		System.out.println("The input start date is " + startDate.concat(year + "-" + month + "-" + day));
-		manageBatch.getStartDateInput((startDate.concat(month + "-" + day + "-" + year)));
+		manageBatch.getDateElement("start-date").sendKeys((startDate.concat(month + "-" + day + "-" + year)));
 	}
 
 	@Then("^the user adds an end date \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void the_user_adds_an_end_date(String month, String day, String year) throws Throwable {
 		String endDate = "";
 		System.out.println("The input end date is " + endDate.concat(year + "-" + month + "-" + day));
-		manageBatch.getEndDateInput((endDate.concat(month + "-" + day + "-" + year)));
+		manageBatch.getDateElement("end-date").sendKeys((endDate.concat(month + "-" + day + "-" + year)));
 	}
 	
 	@Then("^the user adds a training name \"([^\"]*)\"$")
 	public void the_user_adds_a_training_name(String arg1) throws Throwable {
-		manageBatch.getTrainingName(arg1);
+		manageBatch.getWebElementWithId("trainingName").sendKeys(arg1);
 	}
 
 	@Then("^the user adds a training type \"([^\"]*)\"$")
 	public void the_user_adds_a_training_type(String arg1) throws Throwable {
-		manageBatch.getDropdownSelection("trainingType", arg1);
+		manageBatch.getWebElementWithId("trainingType").sendKeys(arg1);
 	}
 
 	@Then("^the user adds a skill type \"([^\"]*)\"$")
@@ -250,16 +251,38 @@ public class CaliberManageBatch {
 		manageBatch.getDropdownSelection("co-trainer", arg1);
 	}
 	
+	@Then("^the user should see the correct data given the starting year \"([^\"]*)\" and training name \"([^\"]*)\"$")
+	public void the_user_should_see_the_correct_data_given_the_starting_year_and_training_name(String arg1, String arg2) throws Throwable {
+		Thread.sleep(2000);
+		manageBatch.selectYearDropdown(arg1).click();
+		Thread.sleep(2000);
+	}
 	
-	// finish batch validation 
-	@Then("^the user should see the correct \"([^\"]*)\" given the correct starting year \"([^\"]*)\" and correct training name \"([^\"]*)\"$")
-	public void the_user_should_see_the_correct_given_the_correct_starting_year_and_correct_training_name(String arg1, String arg2, String arg3) throws Throwable {
-		manageBatch.getYearSelection(arg2);
+	@Given("^the user has selected a year with a batch$")
+	public void the_user_has_selected_a_year_with_a_batch() throws Throwable {
 		Thread.sleep(1000);
-		
-		System.out.println(CaliberGeneralGlueCode.driver.findElement(By.linkText(arg3)).getAttribute("innerHTML"));
-		
-		
+		manageBatch.selectYearDropdown("2016");
+	}
+	
+	@When("^the user clicks on add a trainee to the batch$")
+	public void the_user_clicks_on_add_a_trainee_to_the_batch() throws Throwable {
+		Thread.sleep(1000);		
+		manageBatch.changeBatch("insert").click();
+	}
+
+	@Then("^the user should see the add a trainee screen$")
+	public void the_user_should_see_the_add_a_trainee_screen() throws Throwable {
+		assertEquals(manageBatch.getTraineeScreenTitle().getAttribute("innerHTML"), "Add Trainee");
+	}
+
+	@When("^the user clicks on the exit from the trainee screen$")
+	public void the_user_clicks_on_the_exit_from_the_trainee_screen() throws Throwable {
+		manageBatch.exitTraineeScreen().click();
+	}
+
+	@When("^the user clicks on close from the add a trainee screen$")
+	public void the_user_clicks_on_close_from_the_add_a_trainee_screen() throws Throwable {
+		manageBatch.closeTraineeScreen().click();
 	}
 	
 

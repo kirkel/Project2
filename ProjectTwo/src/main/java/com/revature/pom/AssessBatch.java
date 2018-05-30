@@ -2,6 +2,7 @@ package com.revature.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class AssessBatch extends HomePage {
 
@@ -9,38 +10,33 @@ public class AssessBatch extends HomePage {
 		super(driver);
 	}
 	
-	public void getYearDropdown( ) {
-		driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[1]/a")).click();
+	public WebElement getYearDropdown( ) {
+		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[1]/a"));
 	}
 	
-	public void getYearInDropdown(int year) {
-		
+	public WebElement getYearInDropdown(int year) {
 		if(year < 2016  || year > 2019) {
 			throw new IllegalArgumentException("The year must be between 2016 and 2019");
 		}
-			
 		year -= 2016;
-		driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[1]/ul/li[" + year + "]/a")).click();
+		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[1]/ul/li[" + year + "]/a"));
 	}
 	
-	public void getOwnerDropdown() {
-		driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[2]/a")).click();
+	public WebElement getOwnerDropdown() {
+		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[2]/a"));
 	}
 	
-	public void getOwnerDropdownSelection() {
-		driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[2]/ul/li/a")).click();
+	public WebElement getOwnerDropdownSelection() {
+		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[2]/ul/li/a"));
 	}
 	
-	public void getCreateAssessment() {
-		driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[3]/a")).click();
+	public WebElement getCreateAssessment() {
+		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[3]/a"));
 	}
 	
 	public void getWeekAssessment(int week) {
 		
-//		while(true) {
-//			driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul/li[" + week + "]/a")).click();
-//			week++;
-//		}
+
 		
 	}
 	

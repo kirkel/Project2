@@ -11,8 +11,8 @@ public class HomePage extends POM{
 		super(driver);
 	}
 	
-	public void getUserGuide() {
-		driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div[1]/p/a")).click();
+	public WebElement getUserGuide() {
+		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div[1]/p/a"));
 	}
 	
 	public WebElement getWelcomeHome() {

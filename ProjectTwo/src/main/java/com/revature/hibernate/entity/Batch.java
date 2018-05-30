@@ -1,9 +1,14 @@
 package com.revature.hibernate.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -65,8 +70,8 @@ public class Batch{
 	@Column(name="passingGrade")
 	float passingGrade;
 	
-//	@OneToMany(cascade=CascadeType.ALL, mappedBy="Trainee")
-//	private List<Trainee> trainees = new ArrayList<>();
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="batch")
+	private List<Trainee> trainees = new ArrayList<>();
 	
 	public Batch(String trainingName) {
 		super();

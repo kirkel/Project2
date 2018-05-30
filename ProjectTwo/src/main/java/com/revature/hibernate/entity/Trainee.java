@@ -1,9 +1,16 @@
 package com.revature.hibernate.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -63,12 +70,12 @@ public class Trainee{
 	@Column(name="profileUrl")
 	String profileUrl;
 	
-//	@ManyToOne(cascade= {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
-//	@JoinColumn(name="Batch_Id")
-//	private Batch batch;
+	@ManyToOne(cascade= {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
+	@JoinColumn(name="Batch_Id")
+	private Batch batch;
 	
-//	@ManyToMany(mappedBy="AssessmentScore", cascade=CascadeType.ALL)
-//	List<AssessmentScore> assessmentScores = new ArrayList<>();
+	@ManyToMany(mappedBy="trainees", cascade=CascadeType.ALL)
+	List<AssessmentScore> assessmentScores = new ArrayList<>();
 	
 	public Trainee() {}
 	

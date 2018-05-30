@@ -1,13 +1,22 @@
 package com.revature.hibernate.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="Week")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class Week{
 	
 	@Id
@@ -18,8 +27,8 @@ public class Week{
 	@Column(name="overallFeedback")
 	String overallFeedback;
 	
-//	@OneToMany(cascade=CascadeType.ALL, mappedBy="Assessment")
-//	private List<Assessment> assessments = new ArrayList<>();
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="week")
+	private List<Assessment> assessments = new ArrayList<>();
 
 	public Week() {}
 	

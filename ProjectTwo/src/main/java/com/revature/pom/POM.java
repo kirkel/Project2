@@ -2,6 +2,7 @@ package com.revature.pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class POM {
 	
@@ -26,78 +27,51 @@ public class POM {
 	
 	// -------------- Header --------------
 	
-	public void getLogoButton() {
-		driver.findElement(By.xpath("/html/body/div/ui-view/nav/div/ul[1]/li/a")).click();
+	public WebElement getLogoButton() {
+		return driver.findElement(By.xpath("/html/body/div/ui-view/nav/div/ul[1]/li/a"));
 	}
 	
-	public void getHomeButton() {
-		driver.findElement(By.xpath("/html/body/div/ui-view/nav/div/ul[2]/li[1]/a")).click();
-	}
-	
-	public void getManageBatchButton() {
-		driver.findElement(By.xpath("/html/body/div/ui-view/nav/div/ul[2]/li[2]/a")).click();
-	}
-	
-	public void getAssessBatchButton() {
-		driver.findElement(By.xpath("/html/body/div/ui-view/nav/div/ul[2]/li[3]/a")).click();
-	}
-	
-	public void getReportsButton() {
-		driver.findElement(By.xpath("/html/body/div/ui-view/nav/div/ul[2]/li[4]/a")).click();
+	// 1: home button, 2: managebatch, 3: assessbatch, 4: reports
+	public WebElement getNavbarElements(String navElement) {
+		int selection = 0;
+		if(navElement.equals("home")) {
+			selection = 1;
+		}
+		if(navElement.equals("manageBatch")) {
+			selection = 2;
+		}
+		if(navElement.equals("assessBatch")) {
+			selection = 3;
+		}
+		if(navElement.equals("reports")) {
+			selection = 4;
+		}
+		if(selection == 0) {
+			throw new IllegalArgumentException("That is not an element defined on the navbar");
+		}
+		
+		return driver.findElement(By.xpath("/html/body/div/ui-view/nav/div/ul[2]/li["+ selection +"]/a"));
 	}
 	
 	
 	// -------------- Footer --------------
-	
-	public void getPhoneNumber() {
-		driver.findElement(By.xpath("/html/body/footer/div/div/div/div[2]/a[1]")).click();
+
+	// 1: phonenumber, 2: email, 3: revature
+	public WebElement getFooterLink(String footerSelection) {
+		int selection = 0;
+		if(footerSelection.equals("phonenumber")) {
+			selection = 1;
+		}
+		if(footerSelection.equals("email")) {
+			selection = 2;
+		}
+		if(footerSelection.equals("revature")) {
+			selection = 3;
+		}
+		if(selection == 0) {
+			throw new IllegalArgumentException("That is not an element defined in the footer");
+		}
+		
+		return driver.findElement(By.xpath("/html/body/footer/div/div/div/div[2]/a[" + selection + "]"));
 	}
-	
-	public void getEmail() {
-		driver.findElement(By.xpath("/html/body/footer/div/div/div/div[2]/a[2]")).click();
-	}
-	
-	public void getRevatureLink() {
-		driver.findElement(By.xpath("/html/body/footer/div/div/div/div[2]/a[3]")).click();
-	}
-	
-	
-	
-	
-	// Gets a valid dropdown selection from any given dropdown menu
-	// input => what the selection should be from the dropdown
-	// locator => the name of the dropdown options 
-//	public void dropdownSelection(String input, String locator) {
-//		List<WebElement> listOfElements = driver.findElements(By.xpath("//select[@name='" + locator + "']/option"));
-//		Select select = new Select(driver.findElement(By.name(locator)));
-//		
-//		for(WebElement el : listOfElements) {
-//			if(el.getText().equals(input)) {
-//				select.selectByVisibleText(input);
-//				return;
-//			}
-//		}
-//		throw new IllegalArgumentException(select + " is not a valid selection");
-//	}
-	
-	
-	
-	// creates a fluent wait
-	// has to be tweaked before it can work
-//	public WebElement fluentWait(final By locator) {
-//    Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-//            .withTimeout(30, TimeUnit.SECONDS)
-//            .pollingEvery(5, TimeUnit.SECONDS)
-//            .ignoring(NoSuchElementException.class);
-//
-//    WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
-//        public WebElement apply(WebDriver driver) {
-//            return driver.findElement(locator);
-//        }
-//    });
-//
-//    return  foo;
-//};
-	
-	
 }

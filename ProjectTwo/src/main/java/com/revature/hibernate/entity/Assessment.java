@@ -1,16 +1,27 @@
 package com.revature.hibernate.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.revature.hibernate.enums.AssessmentCategory;
 import com.revature.hibernate.enums.AssessmentType;
 
 @Entity
 @Table(name="Assessment")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class Assessment{
 	
 	@Id
@@ -27,12 +38,12 @@ public class Assessment{
 	@Column(name="type")
 	AssessmentType type;
 	
-//	@ManyToOne(cascade= {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
-//	@JoinColumn(name="Assessment_Id")
-//	private Week week;
+	@ManyToOne(cascade= {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
+	@JoinColumn(name="Week_Id")
+	private Week week;
 	
-//	@OneToMany(cascade=CascadeType.ALL, mappedBy="AssessmentScore")
-//	private List<AssessmentScore> assessmentScores = new ArrayList<>();
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="assessment")
+	private List<AssessmentScore> assessmentScores = new ArrayList<>();
 	
 	public Assessment() {}
 	
@@ -45,6 +56,22 @@ public class Assessment{
 	
 	
 	
+	public Week getWeek() {
+		return week;
+	}
+
+	public void setWeek(Week week) {
+		this.week = week;
+	}
+
+	public List<AssessmentScore> getAssessmentScores() {
+		return assessmentScores;
+	}
+
+	public void setAssessmentScores(List<AssessmentScore> assessmentScores) {
+		this.assessmentScores = assessmentScores;
+	}
+
 	public int getAssessment_Id() {
 		return Assessment_Id;
 	}
