@@ -6,7 +6,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.revature.hibernate.entity.Assessment;
 import com.revature.hibernate.entity.Trainee;
 import com.revature.hibernate.util.HibernateUtil;
 

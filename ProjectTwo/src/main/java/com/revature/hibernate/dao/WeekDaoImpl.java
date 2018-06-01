@@ -6,7 +6,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.revature.hibernate.entity.Assessment;
 import com.revature.hibernate.entity.Week;
 import com.revature.hibernate.util.HibernateUtil;
 
@@ -27,7 +26,7 @@ public class WeekDaoImpl implements WeekDao{
 		Session session = null;
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
-			return session.createQuery("from Week", Week.class).getResultList();
+			return session.createQuery("from Week order by Week_Id", Week.class).getResultList();
 		} catch (HibernateException hbe) {
 			hbe.printStackTrace();
 		} finally {

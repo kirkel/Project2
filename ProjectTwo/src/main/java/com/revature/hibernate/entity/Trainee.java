@@ -93,7 +93,7 @@ public class Trainee{
 
 	public Trainee(String fullName, FlagColor flagColor, String flagNotes, String email, TrainingStatus status,
 			long phonenumber, String skypeId, String college, String degree, String major, String recruiterName,
-			String techScreenerName, float projectCompletion, String profileUrl) {
+			String techScreenerName, float projectCompletion, String profileUrl, Batch batch) {
 		super();
 		this.fullName = fullName;
 		this.flagColor = flagColor;
@@ -109,6 +109,7 @@ public class Trainee{
 		this.techScreenerName = techScreenerName;
 		this.projectCompletion = projectCompletion;
 		this.profileUrl = profileUrl;
+		this.batch = batch;
 	}
 
 	public int getTrainee_Id() {
@@ -202,6 +203,14 @@ public class Trainee{
 	}
 	public void setFlagNotes(String flagNotes) {
 		this.flagNotes = flagNotes;
+	}
+
+	public Batch getBatch() {
+		return batch;
+	}
+
+	public void setBatch(Batch batch) {
+		this.batch = batch;
 	}
 
 	@Override

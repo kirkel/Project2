@@ -6,7 +6,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.revature.hibernate.entity.Assessment;
 import com.revature.hibernate.entity.Batch;
 import com.revature.hibernate.util.HibernateUtil;
 
@@ -28,7 +27,7 @@ public class BatchDaoImpl implements BatchDao{
 		Session session = null;
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
-			return session.createQuery("from Batch", Batch.class).getResultList();
+			return session.createQuery("from Batch order by batch_Id", Batch.class).getResultList();
 		} catch (HibernateException hbe) {
 			hbe.printStackTrace();
 		} finally {
@@ -115,6 +114,20 @@ public class BatchDaoImpl implements BatchDao{
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public Batch getBatch(String trainingName) {
+		Session session = null;
+		try {
+			session = HibernateUtil.getSessionFactory().openSession();
+			return session.createQuery("from Batch where trainingName like :trainingName", Batch.class).setParameter("trainingName", trainingName).getSingleResult();
+		} catch (HibernateException hbe) {
+			hbe.printStackTrace();
+		} finally {
+			HibernateUtil.shutdownSession(session);
+		}
+		return null;
 	}
 
 }

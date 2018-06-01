@@ -15,6 +15,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.revature.hibernate.enums.SkillType;
+import com.revature.hibernate.enums.Trainer;
 import com.revature.hibernate.enums.TrainingLocation;
 import com.revature.hibernate.enums.TrainingType;
 
@@ -41,10 +42,10 @@ public class Batch{
 	SkillType skillType;
 	
 	@Column(name="trainer")
-	String trainer;
+	Trainer trainer;
 	
 	@Column(name="cotrainer")
-	String cotrainer;
+	Trainer cotrainer;
 	
 	@Column(name="start_month")
 	int start_month;
@@ -73,16 +74,23 @@ public class Batch{
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="batch")
 	private List<Trainee> trainees = new ArrayList<>();
 	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="batch")
+	private List<Week> weeks = new ArrayList<>();
+	
+	public Batch() {}
+	
 	public Batch(String trainingName) {
 		super();
 		this.trainingName = trainingName;
 	}
-	public Batch(String trainingName, TrainingLocation trainingLocation, SkillType skillType, String trainer,
-			String cotrainer, int start_month, int start_day, int start_year, int end_month, int end_day, int end_year,
-			float goodGrade, float passingGrade) {
+	
+	public Batch(String trainingName, TrainingLocation trainingLocation, TrainingType trainingType, SkillType skillType,
+			Trainer trainer, Trainer cotrainer, int start_month, int start_day, int start_year, int end_month,
+			int end_day, int end_year, float goodGrade, float passingGrade) {
 		super();
 		this.trainingName = trainingName;
 		this.trainingLocation = trainingLocation;
+		this.trainingType = trainingType;
 		this.skillType = skillType;
 		this.trainer = trainer;
 		this.cotrainer = cotrainer;
@@ -94,10 +102,11 @@ public class Batch{
 		this.end_year = end_year;
 		this.goodGrade = goodGrade;
 		this.passingGrade = passingGrade;
-	
 	}
-	
-	
+
+
+
+
 	public int getBatch_Id() {
 		return Batch_Id;
 	}
@@ -128,16 +137,16 @@ public class Batch{
 	public void setSkillType(SkillType skillType) {
 		this.skillType = skillType;
 	}
-	public String getTrainer() {
+	public Trainer getTrainer() {
 		return trainer;
 	}
-	public void setTrainer(String trainer) {
+	public void setTrainer(Trainer trainer) {
 		this.trainer = trainer;
 	}
-	public String getCotrainer() {
+	public Trainer getCotrainer() {
 		return cotrainer;
 	}
-	public void setCotrainer(String cotrainer) {
+	public void setCotrainer(Trainer cotrainer) {
 		this.cotrainer = cotrainer;
 	}
 	public int getStart_month() {
@@ -189,8 +198,22 @@ public class Batch{
 		this.passingGrade = passingGrade;
 	}
 	
-	
-	
+	public List<Trainee> getTrainees() {
+		return trainees;
+	}
+
+	public void setTrainees(List<Trainee> trainees) {
+		this.trainees = trainees;
+	}
+
+	public List<Week> getWeeks() {
+		return weeks;
+	}
+
+	public void setWeeks(List<Week> weeks) {
+		this.weeks = weeks;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -256,14 +279,16 @@ public class Batch{
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
-		return "Batch [trainingName=" + trainingName + ", trainingLocation=" + trainingLocation + ", skillType="
-				+ skillType + ", trainer=" + trainer + ", cotrainer=" + cotrainer + ", start_month=" + start_month
-				+ ", start_day=" + start_day + ", start_year=" + start_year + ", end_month=" + end_month + ", end_day="
-				+ end_day + ", end_year=" + end_year + ", goodGrade=" + goodGrade + ", passingGrade=" + passingGrade
-				+ "]";
+		return "Batch [Batch_Id=" + Batch_Id + ", trainingName=" + trainingName + ", trainingLocation="
+				+ trainingLocation + ", trainingType=" + trainingType + ", skillType=" + skillType + ", trainer="
+				+ trainer + ", cotrainer=" + cotrainer + ", start_month=" + start_month + ", start_day=" + start_day
+				+ ", start_year=" + start_year + ", end_month=" + end_month + ", end_day=" + end_day + ", end_year="
+				+ end_year + ", goodGrade=" + goodGrade + ", passingGrade=" + passingGrade + "]";
 	}
+	
 	
 	
 	

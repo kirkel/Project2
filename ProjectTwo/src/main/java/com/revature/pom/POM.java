@@ -34,19 +34,21 @@ public class POM {
 	// 1: home button, 2: managebatch, 3: assessbatch, 4: reports
 	public WebElement getNavbarElements(String navElement) {
 		int selection = 0;
-		if(navElement.equals("home")) {
+		
+		switch(navElement) {
+		case "home": 
 			selection = 1;
-		}
-		if(navElement.equals("manageBatch")) {
+			break;
+		case "manageBatch":
 			selection = 2;
-		}
-		if(navElement.equals("assessBatch")) {
+			break;
+		case "assessBatch":
 			selection = 3;
-		}
-		if(navElement.equals("reports")) {
+			break;
+		case "reports":
 			selection = 4;
-		}
-		if(selection == 0) {
+			break;
+		default: 
 			throw new IllegalArgumentException("That is not an element defined on the navbar");
 		}
 		
@@ -59,16 +61,18 @@ public class POM {
 	// 1: phonenumber, 2: email, 3: revature
 	public WebElement getFooterLink(String footerSelection) {
 		int selection = 0;
-		if(footerSelection.equals("phonenumber")) {
+		
+		switch(footerSelection) {
+		case "phonenumber":
 			selection = 1;
-		}
-		if(footerSelection.equals("email")) {
+			break;
+		case "email":
 			selection = 2;
-		}
-		if(footerSelection.equals("revature")) {
+			break;
+		case "revature":
 			selection = 3;
-		}
-		if(selection == 0) {
+			break;
+		default:
 			throw new IllegalArgumentException("That is not an element defined in the footer");
 		}
 		

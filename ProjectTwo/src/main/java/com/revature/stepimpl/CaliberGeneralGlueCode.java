@@ -2,6 +2,7 @@ package com.revature.stepimpl;
 
 import static org.testng.Assert.assertEquals;
 
+import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -10,6 +11,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.revature.driver.DriverFactory;
+import com.revature.hibernate.entity.Batch;
+import com.revature.hibernate.entity.Trainee;
+import com.revature.hibernate.services.BatchService;
+import com.revature.hibernate.services.TraineeService;
 import com.revature.pom.POM;
 
 import cucumber.api.java.After;
@@ -21,6 +26,7 @@ public class CaliberGeneralGlueCode {
 	static WebDriver driver;
 	POM pom;
 	String caliberUrl = "https://dev-caliber.revature.tech/caliber/#/trainer/";
+	
 	
 	@After  
 	public void shutdowndriver() {

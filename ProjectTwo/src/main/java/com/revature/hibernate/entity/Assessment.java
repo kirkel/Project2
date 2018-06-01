@@ -47,15 +47,14 @@ public class Assessment{
 	
 	public Assessment() {}
 	
-	public Assessment(AssessmentCategory category, int maxPoints, AssessmentType type) {
+	public Assessment(AssessmentCategory category, int maxPoints, AssessmentType type, Week week) {
 		super();
 		this.category = category;
 		this.maxPoints = maxPoints;
 		this.type = type;
+		this.week = week;
 	}
-	
-	
-	
+
 	public Week getWeek() {
 		return week;
 	}
