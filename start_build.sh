@@ -1,8 +1,11 @@
 pwd
 ls -alt
 cd testAngular/testAngular/
+pwd
+ls -alt
 npm install	
-ng build --prod --base-href=http://ec2-54-243-8-17.compute-1.amazonaws.com:8090/projecttwoweb/
+ng build --prod --base-href=http://localhost:8090/testAngular/
+pwdls -alt
 cd dist/
 pwd
 ls -alt
