@@ -533,3 +533,8 @@
 2018-05-31 23:01:36 WARN  AbstractEhcacheRegionFactory:160 - HHH020003: Could not find a specific ehcache configuration for cache named [com.revature.hibernate.entity.Batch]; using defaults.
 2018-05-31 23:01:36 WARN  AbstractEhcacheRegionFactory:160 - HHH020003: Could not find a specific ehcache configuration for cache named [com.revature.hibernate.entity.Trainee]; using defaults.
 2018-05-31 23:01:36 WARN  AbstractEhcacheRegionFactory:160 - HHH020003: Could not find a specific ehcache configuration for cache named [com.revature.hibernate.entity.Week]; using defaults.
+2018-06-01 18:13:25 WARN  AbstractEhcacheRegionFactory:160 - HHH020003: Could not find a specific ehcache configuration for cache named [com.revature.hibernate.entity.Assessment]; using defaults.
+2018-06-01 18:13:25 WARN  AbstractEhcacheRegionFactory:160 - HHH020003: Could not find a specific ehcache configuration for cache named [com.revature.hibernate.entity.AssessmentScore]; using defaults.
+2018-06-01 18:13:25 WARN  AbstractEhcacheRegionFactory:160 - HHH020003: Could not find a specific ehcache configuration for cache named [com.revature.hibernate.entity.Batch]; using defaults.
+2018-06-01 18:13:25 WARN  AbstractEhcacheRegionFactory:160 - HHH020003: Could not find a specific ehcache configuration for cache named [com.revature.hibernate.entity.Trainee]; using defaults.
+2018-06-01 18:13:25 WARN  AbstractEhcacheRegionFactory:160 - HHH020003: Could not find a specific ehcache configuration for cache named [com.revature.hibernate.entity.Week]; using defaults.
