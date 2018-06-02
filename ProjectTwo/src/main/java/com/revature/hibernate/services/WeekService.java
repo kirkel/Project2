@@ -25,4 +25,5 @@ public class WeekService {
 	public static boolean deleteWeek(Week week) {
 		return dao.deleteWeek(week);
 	}
+	
 }

@@ -24,7 +24,7 @@ public class CaliberHomePage {
 
 	@Then("^the user clicks on user guide$")
 	public void the_user_clicks_on_user_guide() throws Throwable {
-		home.getUserGuide();
+		home.getUserGuide().click();
 	}
 	
 	@Then("^the user should see the github page for Caliber$")

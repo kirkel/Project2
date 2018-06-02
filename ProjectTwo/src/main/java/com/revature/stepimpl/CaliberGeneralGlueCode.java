@@ -2,6 +2,7 @@ package com.revature.stepimpl;
 
 import static org.testng.Assert.assertEquals;
 
+import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -10,6 +11,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.revature.driver.DriverFactory;
+import com.revature.hibernate.entity.Batch;
+import com.revature.hibernate.entity.Trainee;
+import com.revature.hibernate.services.BatchService;
+import com.revature.hibernate.services.TraineeService;
 import com.revature.pom.POM;
 
 import cucumber.api.java.After;
@@ -21,6 +26,7 @@ public class CaliberGeneralGlueCode {
 	static WebDriver driver;
 	POM pom;
 	String caliberUrl = "https://dev-caliber.revature.tech/caliber/#/trainer/";
+	
 	
 	@After  
 	public void shutdowndriver() {
@@ -49,16 +55,6 @@ public class CaliberGeneralGlueCode {
 		driver.navigate().back();
 	}
 	
-	@Then("^the user clicks on the Revature logo$")
-	public void the_user_clicks_on_the_Revature_logo() throws Throwable {
-		pom.getLogoButton();
-	}
-
-	@Then("^the user clicks on the home button$")
-	public void the_user_clicks_on_the_home_button() throws Throwable {
-		pom.getHomeButton();
-	}
-	
 	@Then("^the user should see the home page$")
 	public void the_user_should_see_the_home_page() throws Throwable {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -67,9 +63,19 @@ public class CaliberGeneralGlueCode {
 		assertEquals(caliberUrl.concat("home"), driver.getCurrentUrl().toString());
 	}
 	
+	@Then("^the user clicks on the Revature logo$")
+	public void the_user_clicks_on_the_Revature_logo() throws Throwable {
+		pom.getLogoButton().click();
+	}
+
+	@Then("^the user clicks on the home button$")
+	public void the_user_clicks_on_the_home_button() throws Throwable {
+		pom.getNavbarElements("home").click();
+	}
+	
 	@Then("^the user clicks on manage batch$")
 	public void the_user_clicks_on_manage_batch() throws Throwable {
-		pom.getManageBatchButton();
+		pom.getNavbarElements("manageBatch").click();
 	}
 	
 	@Then("^the user should see the manage batch page$")
@@ -81,7 +87,7 @@ public class CaliberGeneralGlueCode {
 	
 	@Then("^the user clicks on assess batch$")
 	public void the_user_clicks_on_assess_batch() throws Throwable {
-		pom.getAssessBatchButton();
+		pom.getNavbarElements("assessBatch").click();
 	}
 	
 	@Then("^the user should see the assess batch page$")
@@ -93,7 +99,8 @@ public class CaliberGeneralGlueCode {
 
 	@Then("^the user clicks on reports$")
 	public void the_user_clicks_on_reports() throws Throwable {
-		pom.getReportsButton();
+		pom.getNavbarElements("reports").click();
+
 	}
 
 	@Then("^the user should see the reports page$")
@@ -105,7 +112,7 @@ public class CaliberGeneralGlueCode {
 
 	@Then("^the user clicks on the Revature link and returns to the previous page$")
 	public void the_user_clicks_on_the_Revature_link_and_returns_to_the_previous_page() throws Throwable {
-		pom.getRevatureLink();
+		pom.getFooterLink("revature").click();
 		
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
@@ -122,12 +129,12 @@ public class CaliberGeneralGlueCode {
 	
 	@Then("^the user clicks on the phone number$")
 	public void the_user_clicks_on_the_phone_number() throws Throwable {
-		pom.getPhoneNumber();
+		pom.getFooterLink("phonenumber").click();
 	}
 
 	@Then("^the user clicks on the email$")
 	public void the_user_clicks_on_the_email() throws Throwable {
-		pom.getEmail();
+		pom.getFooterLink("email").click();
 	}
 	
 }

@@ -1,13 +1,25 @@
 package com.revature.hibernate.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
 @Table(name="AssessmentScore")
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class AssessmentScore{
 
 	@Id
@@ -18,17 +30,35 @@ public class AssessmentScore{
 	@Column(name="score")
 	float score;
 	
-//	@ManyToOne(cascade= {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
-//	@JoinColumn(name="Assessment_Id")
-//	private Assessment assessment;
-//	
-//	@ManyToMany(cascade=CascadeType.ALL)
-//	@JoinTable(name="AssessmentScore_Trainee", 
-//				joinColumns={ @JoinColumn(name="AssessmentScore_Id")},
-//				inverseJoinColumns={ @JoinColumn(name="Trainee_Id") } )
-//	List<Trainee> trainee = new ArrayList<>();
+	@ManyToOne(cascade= {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
+	@JoinColumn(name="Assessment_Id")
+	private Assessment assessment;
+	
+	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name="AssessmentScore_Trainee", 
+				joinColumns={ @JoinColumn(name="AssessmentScore_Id")},
+				inverseJoinColumns={ @JoinColumn(name="Trainee_Id") } )
+	List<Trainee> trainees = new ArrayList<>();
 	
 	public AssessmentScore() {}
+	
+	
+
+	public Assessment getAssessment() {
+		return assessment;
+	}
+
+	public void setAssessment(Assessment assessment) {
+		this.assessment = assessment;
+	}
+
+	public List<Trainee> getTrainee() {
+		return trainees;
+	}
+
+	public void setTrainee(List<Trainee> trainee) {
+		this.trainees = trainee;
+	}
 
 	public int getAssessmentScore_Id() {
 		return AssessmentScore_Id;

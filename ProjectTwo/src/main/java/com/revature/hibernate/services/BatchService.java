@@ -27,4 +27,8 @@ public class BatchService {
 	public static boolean deleteBatch(Batch batch) {
 		return dao.deleteBatch(batch);
 	}
+	
+	public static Batch getBatch(String trainingName) {
+		return dao.getBatch(trainingName);
+	}
 }
