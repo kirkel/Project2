@@ -6,7 +6,6 @@ import { Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SeleniumComponent } from './selenium/selenium.component';
-import { CucumberComponent } from './cucumber/cucumber.component';
 import { JasmineComponent } from './jasmine/jasmine.component';
 import { ProtractorComponent } from './protractor/protractor.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,7 +19,7 @@ const appRoutes: Routes = [
   { path: 'testng', component: TestngComponent},
   { path: 'protractor', component: ProtractorComponent},
   { path: 'jasmine', component: JasmineComponent},
-  { path: 'cucumber', component: CucumberComponent}
+
 
 ]
 
@@ -29,7 +28,6 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     SeleniumComponent,
-    CucumberComponent,
     JasmineComponent,
     ProtractorComponent,
     TestngComponent,
