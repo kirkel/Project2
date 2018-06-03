@@ -46,7 +46,7 @@ public class HibernateUtil {
 	public static void shutdownSession(Session session) {
 		if (session != null) {
 			session.close();
-			System.out.println("Session successfully closed: " + !session.isOpen());
+			//System.out.println("Session successfully closed: " + !session.isOpen());
 		}
 	}
 	

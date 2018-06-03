@@ -27,8 +27,8 @@ public class Week implements Serializable{
 	private static final long serialVersionUID = 2712370107165662657L;
 
 	@Id
-	@GeneratedValue(generator="week_seq", strategy=GenerationType.SEQUENCE)
-	@SequenceGenerator(name="week_seq", allocationSize=1, initialValue=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "W_gen")
+	@SequenceGenerator(name="W_gen", sequenceName = "W_seq", allocationSize=1)
 	@Column(name="Week_Id")
 	private int Week_Id;
 	
@@ -62,7 +62,7 @@ public class Week implements Serializable{
 		this.batch = batch;
 	}
 
-
+	
 
 	public int getWeek_Id() {
 		return Week_Id;
@@ -86,6 +86,14 @@ public class Week implements Serializable{
 
 	public void setBatch(Batch batch) {
 		this.batch = batch;
+	}
+
+	public List<Assessment> getAssessments() {
+		return assessments;
+	}
+
+	public void setAssessments(List<Assessment> assessments) {
+		this.assessments = assessments;
 	}
 
 	@Override
@@ -115,8 +123,10 @@ public class Week implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Week [overallFeedback=" + overallFeedback + "]";
+		return "Week [Week_Id=" + Week_Id + ", overallFeedback=" + overallFeedback + "]";
 	}
+
+	
 	
 	
 }

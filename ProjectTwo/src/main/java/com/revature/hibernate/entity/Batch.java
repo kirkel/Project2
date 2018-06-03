@@ -7,8 +7,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -25,7 +27,8 @@ import com.revature.hibernate.enums.TrainingType;
 public class Batch{
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "B_gen")
+	@SequenceGenerator(name="B_gen", sequenceName = "B_seq", allocationSize=1)
 	@Column(name="Batch_Id")
 	private int Batch_Id;
 	

@@ -7,10 +7,12 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -25,7 +27,8 @@ import com.revature.hibernate.enums.AssessmentType;
 public class Assessment{
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "A_gen")
+	@SequenceGenerator(name="A_gen", sequenceName = "A_seq", allocationSize=1)
 	@Column(name="Assessment_Id")
 	private int Assessment_Id;
 	

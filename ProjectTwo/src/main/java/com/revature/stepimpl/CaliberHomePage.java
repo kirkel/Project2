@@ -3,6 +3,8 @@ package com.revature.stepimpl;
 
 import static org.testng.Assert.assertEquals;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -47,18 +49,11 @@ public class CaliberHomePage {
 //			}
 //		}
 		
-		
-		// clicks on the first bar graph
-//		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,400).click().build().perform();
-//		Thread.sleep(500);
-//		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),200,400).click().build().perform();
-//		Thread.sleep(500);
-		
-		
 		// clicks on the Benchmark
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),465,13).click().build().perform();
 		// clicks on the Batch scores
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),550,13).click().build().perform();
+		CaliberGeneralGlueCode.driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);	
 		// clicks on the Benchmark
 		builder.moveToElement(CaliberGeneralGlueCode.driver.findElement(By.xpath("//*[@id=\"bar6\"]")),465,13).click().build().perform();
 		// clicks on the Batch scores

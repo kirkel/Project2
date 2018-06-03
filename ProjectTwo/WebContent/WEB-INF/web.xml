@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+
+<servlet>
+		<servlet-name>MasterServlet</servlet-name>
+	<!-- 	<display-name>MasterServlet</display-name> -->
+		<!-- <description></description> -->
+		<servlet-class>com.revature.servlets.MasterServlet</servlet-class>
+	</servlet>
+	
+	<!-- <servlet>
+		<servlet-name>AjaxServlet</servlet-name>
+		<display-name>AjaxServlet</display-name>
+		<description></description>
+		<servlet-class>com.revature.servlets.AjaxServlet</servlet-class>
+	</servlet> -->
+
+	
+	<servlet-mapping>
+		<servlet-name>MasterServlet</servlet-name>
+ 		<url-pattern>*.do</url-pattern> 
+		</servlet-mapping>
+	
+	<!-- <servlet-mapping>
+		<servlet-name>AjaxServlet</servlet-name>
+		<url-pattern>*.ajax</url-pattern>
+	</servlet-mapping> -->
+
+
+
+
+
+</web-app>
