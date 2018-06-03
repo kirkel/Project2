@@ -1,17 +1,14 @@
 package com.revature.hibernate.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -23,7 +20,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 public class AssessmentScore{
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AS_gen")
+	@SequenceGenerator(name="AS_gen", sequenceName = "AS_seq", allocationSize=1)
 	@Column(name="AssessmentScore_Id")
 	private int AssessmentScore_Id;
 
@@ -34,15 +32,28 @@ public class AssessmentScore{
 	@JoinColumn(name="Assessment_Id")
 	private Assessment assessment;
 	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="AssessmentScore_Trainee", 
-				joinColumns={ @JoinColumn(name="AssessmentScore_Id")},
-				inverseJoinColumns={ @JoinColumn(name="Trainee_Id") } )
-	List<Trainee> trainees = new ArrayList<>();
+	@ManyToOne(cascade= {CascadeType.REMOVE, CascadeType.MERGE, CascadeType.PERSIST})
+	@JoinColumn(name="Trainee_Id")
+	Trainee trainee;
 	
 	public AssessmentScore() {}
 	
 	
+
+	public AssessmentScore(float score, Assessment assessment) {
+		super();
+		this.score = score;
+		this.assessment = assessment;
+	}
+
+	public AssessmentScore(float score, Assessment assessment, Trainee trainee) {
+		super();
+		this.score = score;
+		this.assessment = assessment;
+		this.trainee = trainee;
+	}
+
+
 
 	public Assessment getAssessment() {
 		return assessment;
@@ -52,12 +63,12 @@ public class AssessmentScore{
 		this.assessment = assessment;
 	}
 
-	public List<Trainee> getTrainee() {
-		return trainees;
+	public Trainee getTrainee() {
+		return trainee;
 	}
 
-	public void setTrainee(List<Trainee> trainee) {
-		this.trainees = trainee;
+	public void setTrainee(Trainee trainee) {
+		this.trainee = trainee;
 	}
 
 	public int getAssessmentScore_Id() {

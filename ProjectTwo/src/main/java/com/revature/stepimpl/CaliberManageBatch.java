@@ -69,14 +69,11 @@ public class CaliberManageBatch {
 		String endDate = "";
 		manageBatch.getDateElement("end-date").sendKeys((endDate.concat(currentBatch.getEnd_month() + "-" + endDay + "-" + currentBatch.getEnd_year())));
 		
-		Thread.sleep(1000);
+		Thread.sleep(250);
 		manageBatch.getWebElementWithId("goodGrade").sendKeys(String.valueOf(currentBatch.getGoodGrade()));
 		CaliberGeneralGlueCode.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		Thread.sleep(1000);
 	    manageBatch.getWebElementWithId("borderlineGrade").sendKeys(Keys.CONTROL + "a");
-	    Thread.sleep(1000);
 	    manageBatch.getWebElementWithId("borderlineGrade").sendKeys(Keys.DELETE);
-	    Thread.sleep(1000);
 	    manageBatch.getWebElementWithId("borderlineGrade").sendKeys(String.valueOf(currentBatch.getPassingGrade()));
 	}
 

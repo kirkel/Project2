@@ -14,6 +14,10 @@ public class AssessBatch extends HomePage {
 		super(driver);
 	}
 	
+	public WebElement getFirstTrainee() {
+		return driver.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]/td[1]"));
+	}
+	
 	public WebElement getYearDropdown() {
 		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[1]/a"));
 	}
@@ -89,16 +93,18 @@ public class AssessBatch extends HomePage {
 		return driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[1]/div"));
 	}
 	
-	public WebElement getAssessmentCategorySelection(String assessmentCategory) {
-//		int selectionLength = driver.findElements(By.xpath("//*[@id=\"category\"]/option")).size() - 1;
-		// the above seems to be bugging out for no reason, so I'm hard coding this
-		int selectionLength = 46;
-		System.out.println("The number of options found is " + selectionLength);
+	public WebElement getAssessmentCategorySelection(String assessmentCategory, int existingAssessments) {
+		int selectionLength = 0;
+		List<WebElement> elementList = driver.findElements(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[1]/div/select/option"));
+		selectionLength = elementList.size() - 1;
+//		System.out.println("The selection length is " + selectionLength);
 		while(selectionLength > 0) {
-			WebElement toBeReturned = driver.findElement(By.xpath("//*[@id=\"category\"]/option[" + selectionLength + "]"));
-			System.out.println("The category I want is " + assessmentCategory + " and I found " + toBeReturned.getAttribute("innerHTML"));
-			if(toBeReturned.getAttribute("innerHTML").equals(assessmentCategory)) {
-				return toBeReturned;
+//			System.out.println("The category I want is " + assessmentCategory + " and I found " + elementList.get(selectionLength).getAttribute("innerHTML"));
+			if(elementList.get(selectionLength).getAttribute("innerHTML").equals(assessmentCategory)) {
+				selectionLength++;
+//				System.out.println("Success! The options value is " + selectionLength);
+//				System.out.println(driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[1]/div/select/option[" + selectionLength + "]")).getAttribute("innerHTML"));
+				return driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[1]/div/select/option[" + selectionLength + "]"));
 			}
 			selectionLength--;
 		}
@@ -110,15 +116,21 @@ public class AssessBatch extends HomePage {
 	}
 	
 	public WebElement getAssessmentTypeDropdown() {
-		return driver.findElement(By.xpath("//*[@id=\"assessmentType\"]"));
+		return driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[2]/div[2]"));
 	}
 	
 	public WebElement getAssessmentTypeSelection(String type) {
-		int selectionLength = driver.findElements(By.xpath("//*[@id=\"assessmentType\"]/option")).size() - 1;
+		int selectionLength = 0;
+		List<WebElement> elementList = driver.findElements(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[2]/div[2]/select/option"));
+		selectionLength = elementList.size() - 1;
+//		System.out.println("The selection length for types is " + selectionLength);
 		while(selectionLength > 0) {
-			WebElement toBeReturned = driver.findElement(By.xpath("//*[@id=\"assessmentType\"]/option[" + selectionLength + "]"));
-			if(toBeReturned.getAttribute("innerHTML").equals(type)) {
-				return toBeReturned;
+//			System.out.println("The category I want is " + type + " and I found " + elementList.get(selectionLength).getAttribute("innerHTML"));
+			if(elementList.get(selectionLength).getAttribute("innerHTML").equals(type)) {
+				selectionLength++;
+//				System.out.println("Success! The options value is " + selectionLength);
+//				System.out.println(driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[2]/div[2]/select/option[" + selectionLength + "]")).getAttribute("innerHTML"));
+				return driver.findElement(By.xpath("//*[@id=\"createAssessmentModal\"]/div/div/form/div[1]/div[2]/div[2]/select/option[" + selectionLength + "]"));
 			}
 			selectionLength--;
 		}

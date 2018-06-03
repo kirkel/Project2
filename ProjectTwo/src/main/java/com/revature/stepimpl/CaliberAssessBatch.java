@@ -4,9 +4,12 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.openqa.selenium.Keys;
+
 import com.revature.hibernate.entity.Assessment;
 import com.revature.hibernate.entity.Batch;
 import com.revature.hibernate.entity.Trainee;
+import com.revature.hibernate.entity.Week;
 import com.revature.hibernate.services.AssessmentService;
 import com.revature.hibernate.services.BatchService;
 import com.revature.hibernate.services.TraineeService;
@@ -66,24 +69,34 @@ public class CaliberAssessBatch {
 	@When("^the user creates an assessment and enters all the input$")
 	public void the_user_creates_an_assessment_and_enters_all_the_input() throws Throwable {
 		List<Assessment> assessmentList = AssessmentService.getAllAssessments();
+		int assessmentEntered = 1;
 		while(assessmentList.size() > 0) {
 			Assessment currentAssessment = assessmentList.get(assessmentList.size() - 1);
-			assessBatch.getCreateAssessment().click();
-			Thread.sleep(1000);
-			assessBatch.getAssessmentCategory().click();
-			Thread.sleep(500);
-			assessBatch.getAssessmentCategorySelection(currentAssessment.getCategory().getName()).click();
-			Thread.sleep(500);
-			assessBatch.getMaxPoints().sendKeys(String.valueOf(currentAssessment.getMaxPoints()));
-			Thread.sleep(500);
-			assessBatch.getAssessmentTypeDropdown().click();
-			Thread.sleep(500);
-			assessBatch.getAssessmentTypeSelection(currentAssessment.getType().getName()).click();
-			Thread.sleep(500);
-			assessBatch.getAssessmentSave().click();
-			Thread.sleep(1000);
+			System.out.println("The current assessment is " + currentAssessment);
+			Week currentWeek = currentAssessment.getWeek();	
+			System.out.println("The current batch is " + currentBatch.getBatch_Id() + " and I'm looking for " + currentWeek.getBatch().getBatch_Id());
+			if(currentWeek.getBatch().equals(currentBatch)) {
+				System.out.println("The current week is " + currentWeek);
+				assessBatch.getCreateAssessment().click();
+				Thread.sleep(1000);
+				assessBatch.getAssessmentCategory().click();
+				Thread.sleep(500);
+				assessBatch.getAssessmentCategorySelection(currentAssessment.getCategory().getName(), assessmentEntered).click();
+				Thread.sleep(500);
+				assessBatch.getMaxPoints().sendKeys(Keys.CONTROL + "a");
+				assessBatch.getMaxPoints().sendKeys(Keys.DELETE);
+				assessBatch.getMaxPoints().sendKeys(String.valueOf(currentAssessment.getMaxPoints()));
+				Thread.sleep(500);
+				assessBatch.getAssessmentTypeDropdown().click();
+				Thread.sleep(500);
+				assessBatch.getAssessmentTypeSelection(currentAssessment.getType().getName()).click();
+				Thread.sleep(500);
+				assessBatch.getAssessmentSave().click();
+				Thread.sleep(1000);
+				assessmentEntered++;
+			}
 			assessmentList.remove(assessmentList.size() - 1);
-			System.out.println("should have saved at least one assessment");
+
 		}
 
 	}

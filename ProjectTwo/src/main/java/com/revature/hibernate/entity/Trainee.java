@@ -7,10 +7,12 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cache;
@@ -18,13 +20,15 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import com.revature.hibernate.enums.FlagColor;
 import com.revature.hibernate.enums.TrainingStatus;
+
 @Entity
 @Table(name="Trainee")
 @Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class Trainee{
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "T_gen")
+	@SequenceGenerator(name="T_gen", sequenceName = "T_seq", allocationSize=1)
 	@Column(name="Trainee_Id")
 	private int Trainee_Id;
 	
@@ -74,7 +78,7 @@ public class Trainee{
 	@JoinColumn(name="Batch_Id")
 	private Batch batch;
 	
-	@ManyToMany(mappedBy="trainees", cascade=CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="trainee")
 	List<AssessmentScore> assessmentScores = new ArrayList<>();
 	
 	public Trainee() {}
