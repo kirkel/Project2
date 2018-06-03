@@ -1,5 +1,5 @@
-# JTA1804 - Highest Caliber
-##Projects
+# JTA1804 - Highest Caliber  
+## Projects  
 * [testAngular](http://ec2-54-89-63-71.compute-1.amazonaws.com:8090/testAngular/)  
     This project was to test automated CI & CD with Jenkins and Tomcat.
 * [ProjectTwo](http://ec2-54-89-63-71.compute-1.amazonaws.com:8090/projecttwoweb/)  
@@ -8,20 +8,20 @@
     * Cucumber 
     * TestNG
     * Jasmine
-    * Protractor
-    ///// WORK IN PROGRESS /////
-* [HighestCaliber](http://ec2-54-89-63-71.compute-1.amazonaws.com:8090/HighestCaliber/)
-    ///// WORK IN PROGRESS /////
+    * Protractor  
+    ///// WORK IN PROGRESS /////  
+* [HighestCaliber](http://ec2-54-89-63-71.compute-1.amazonaws.com:8090/HighestCaliber/)  
+    ///// WORK IN PROGRESS /////  
 ## Responsibilities:
-###Sonam J. 
+### Sonam J.   
 * Java Web
-* Jasmine?
-###Adam L. 
+* Jasmine?  
+### Adam L. 
 * TestNG
-* Cucumber
-###Kirk L.
+* Cucumber  
+### Kirk L.
 * Pipeline
-* Floater
-###David P.
-* Angular Webapp
+* Floater  
+### David P.
+* Angular Web App.
 * Protractor
