@@ -14,7 +14,7 @@ export class TestngComponent implements OnInit {
   ngOnInit() {
   }
   runTestNg(): void {
-    this.http.post('http://localhost:8080/ServletAngular/runTestNg.do', {
+    this.http.post('http://localhost:8080/ServletAngular/runtestng.do', {
     }).subscribe(
       res => {
       console.log(res);
