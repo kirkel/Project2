@@ -1,7 +1,7 @@
 
 describe('Caliber homepage check HTML elements are present', function() {
       browser.driver.manage().window().maximize();
-      browser.get('http://dev-caliber.revature.tech/caliber/#/routing/');
+      browser.get('https://dev-caliber.revature.tech/caliber/#/trainer/home');
       it('page title matches "Caliber | Performance Management" ', function() {
       expect(browser.getTitle()).toEqual('Caliber | Performance Management')
       });
