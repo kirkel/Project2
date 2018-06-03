@@ -16,6 +16,9 @@ private MasterDispatcher() {}
 		case "/ProjectTwo/testng.do":
 				System.out.println("inside testng.do");
 				return testngservice.testng(request, response);
+		case "/ProjectTwo/protractor.do":
+			System.out.println("inside testng.do");
+			return testngservice.testng(request, response);
 	
 		default:
 				return "404.jsp";

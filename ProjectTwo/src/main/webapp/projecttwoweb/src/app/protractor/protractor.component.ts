@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpRequestService } from '../services/testng-service.service';
+
 
 @Component({
   selector: 'app-protractor',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProtractorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpRequest: HttpRequestService) { }
 
   ngOnInit() {
   }
-
-}
+  onSubmit(): void {
+    this.httpRequest.runProtractor()
+          
+  }};
