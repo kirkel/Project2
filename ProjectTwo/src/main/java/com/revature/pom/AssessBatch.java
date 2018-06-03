@@ -59,9 +59,11 @@ public class AssessBatch extends HomePage {
 		else if(dropdownElements.size() == 1) {
 			return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[2]/ul/li/a"));
 		} else {
-			int selection = dropdownElements.size() - 1;
+			int selection = dropdownElements.size();
+			System.out.println("The selection count is " + selection);
 			while(selection > 0) {
 				WebElement toBeReturned = driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[2]/ul[1]/li[2]/ul/li[" + selection + "]/a"));
+				System.out.println("Comparing " + toBeReturned.getAttribute("innerHTML").trim() + " and " + dropdownFinder.trim());
 				if(toBeReturned.getAttribute("innerHTML").trim().equals(dropdownFinder.trim())) {
 					return toBeReturned;
 				}
@@ -141,7 +143,45 @@ public class AssessBatch extends HomePage {
 		return driver.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[1]/td[1]"));
 	}
 	
-
+	public WebElement getDeleteAssessment(int assessOrder) {
+		int selection = assessOrder + 2;
+		return driver.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/thead/tr/th[" + selection + "]"));
+	}
+	
+	public WebElement getDeleteAssessmentDelete(int assessOrder) {
+		int selection = assessOrder + 2;
+		return driver.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/thead/tr/th[" + selection + "]/div/div/div/div/div[3]/div[1]"));
+	}
+	
+	public WebElement getNewWeek() {
+		List<WebElement> weekElements = driver.findElements(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul/li"));
+		int weeks = weekElements.size();
+		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul/li[" + weeks + "]/a"));
+	}
+	
+	public WebElement getNewWeekYes() {
+		return driver.findElement(By.xpath("//*[@id=\"yesBtn\"]"));
+	}
+	
+	public WebElement getNewWeekNo() {
+		return driver.findElement(By.xpath("//*[@id=\"confirmingweeks\"]/div/div/div[2]/button[2]"));
+	}
+	
+	public WebElement getNewWeekExit() {
+		return driver.findElement(By.xpath("//*[@id=\"confirmingweeks\"]/div/div/div[1]/button"));
+	}
+	
+	public WebElement getParticularWeek(int week) {
+		return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div[3]/ul/li[" + week + "]/a"));
+	}
+	
+	public WebElement enterAssessmentScore(int order) {
+		return driver.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[" + order + "]/td[3]/input"));
+	}
+	
+	public WebElement saveAssessmentScores() {
+		return driver.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/div[3]/div/a"));
+	}
 	
 
 }

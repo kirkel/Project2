@@ -38,7 +38,6 @@ Feature: Test all links on the home page
 		# ----------- Unique links and buttons checks -----------
 		And the user clicks on user guide
 		Then the user should see the github page for Caliber
-		And the user returns back to the previous page 
 		Then the user should see the home page
 		
 		

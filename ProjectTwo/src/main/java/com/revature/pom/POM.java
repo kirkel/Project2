@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 public class POM {
 	
 	public WebDriver driver; 
-	private static final String URL = "https://dev-caliber.revature.tech/";
+	private static final String URL = "https://dev-caliber.revature.tech/caliber/#/trainer/home";
 	
 	// Note: the boolean only exists so you can have 2 constructors by passing in a driver
 	// this is needed so the POM doesn't refresh the page every time whenever it is called to be constructed by subclasses 
@@ -16,6 +16,7 @@ public class POM {
 		this.driver = driver;
 		if(createDriverForFirstTime)
 			driver.get(URL);
+		
 	}
 	public POM(WebDriver driver) {
 		this.driver = driver;

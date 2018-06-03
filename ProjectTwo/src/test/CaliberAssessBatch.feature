@@ -47,9 +47,12 @@ Feature: Test all links on the Assess Batch page
 		Then the user should see the assessment in the table 
 		When the user enters in the assessment scores and flags the appropiate users 
 		Then the user should see the asessments with data in the table 
-		
-		
-		
+		When the user deletes an assessment 
+		Then the user should see the asessments with data in the table 
+		When the user adds the scores to an assessment 
+		Then the user should see the asessments with data in the table  
+		When the user adds a new week
+		Then the user should see the asessments with data in the table 
 		
 		
 		

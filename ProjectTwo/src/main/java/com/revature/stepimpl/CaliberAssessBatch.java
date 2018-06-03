@@ -4,7 +4,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 import com.revature.hibernate.entity.Assessment;
 import com.revature.hibernate.entity.Batch;
@@ -70,13 +72,13 @@ public class CaliberAssessBatch {
 	public void the_user_creates_an_assessment_and_enters_all_the_input() throws Throwable {
 		List<Assessment> assessmentList = AssessmentService.getAllAssessments();
 		int assessmentEntered = 1;
+		System.out.println("The number of assessments found is " + assessmentList.size());
 		while(assessmentList.size() > 0) {
 			Assessment currentAssessment = assessmentList.get(assessmentList.size() - 1);
-			System.out.println("The current assessment is " + currentAssessment);
 			Week currentWeek = currentAssessment.getWeek();	
-			System.out.println("The current batch is " + currentBatch.getBatch_Id() + " and I'm looking for " + currentWeek.getBatch().getBatch_Id());
+//			System.out.println("Comparing " + currentWeek.getBatch().getBatch_Id() + " with " + currentBatch.getBatch_Id());
 			if(currentWeek.getBatch().equals(currentBatch)) {
-				System.out.println("The current week is " + currentWeek);
+				Thread.sleep(250);
 				assessBatch.getCreateAssessment().click();
 				Thread.sleep(1000);
 				assessBatch.getAssessmentCategory().click();
@@ -105,15 +107,56 @@ public class CaliberAssessBatch {
 	public void the_user_should_see_the_assessment_in_the_table() throws Throwable {
 		
 	}
-
+	
 	@When("^the user enters in the assessment scores and flags the appropiate users$")
 	public void the_user_enters_in_the_assessment_scores_and_flags_the_appropiate_users() throws Throwable {
-		
+		List<WebElement> traineeElements = CaliberGeneralGlueCode.driver.findElements(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr"));
+		int numTrainees = traineeElements.size() + 1;
+		double min = 40.0;
+		double max = 100.0;
+		for(int i = 1; i < numTrainees; i++) {
+			double x = Math.random() * (max - min);
+			assessBatch.enterAssessmentScore(i).sendKeys(String.valueOf(x));
+		}
+		assessBatch.saveAssessmentScores().click();
 	}
 
 	@Then("^the user should see the asessments with data in the table$")
 	public void the_user_should_see_the_asessments_with_data_in_the_table() throws Throwable {
 		
 	}
+	
+	@When("^the user deletes an assessment$")
+	public void the_user_deletes_an_assessment() throws Throwable {
+		Thread.sleep(1000);
+		assessBatch.getDeleteAssessment(1).click();
+	}
+
+	@When("^the user adds the scores to an assessment$")
+	public void the_user_adds_the_scores_to_an_assessment() throws Throwable {
+		Thread.sleep(1000);
+		assessBatch.getDeleteAssessmentDelete(1).click();
+		Thread.sleep(1000);
+	}
+	
+	@When("^the user adds a new week$")
+	public void the_user_adds_a_new_week() throws Throwable {
+		Thread.sleep(1000);
+		assessBatch.getNewWeek().click();
+		Thread.sleep(1000);
+		assessBatch.getNewWeekExit().click();
+		Thread.sleep(1000);
+		//CHECK TO SEE IF THE NEW WEEK WAS ADDED
+		assessBatch.getNewWeek().click();
+		Thread.sleep(1000);
+		assessBatch.getNewWeekNo().click();
+		//CHECK TO SEE IF THE NEW WEEK WAS ADDED
+		Thread.sleep(1000);
+		assessBatch.getNewWeek().click();
+		Thread.sleep(1000);
+		assessBatch.getNewWeekYes().click();
+		Thread.sleep(2000);
+	}
+	
 	
 }

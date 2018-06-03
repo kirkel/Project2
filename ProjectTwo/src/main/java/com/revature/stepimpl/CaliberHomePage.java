@@ -21,7 +21,7 @@ public class CaliberHomePage {
 	
 	@Given("^the user is on the home page for the first time$")
 	public void the_user_is_on_the_home_page_for_the_first_time() throws Throwable {
-		home = new HomePage(CaliberGeneralGlueCode.driver);
+		home = new HomePage(CaliberGeneralGlueCode.driver);		
 	}
 
 	@Then("^the user clicks on user guide$")
@@ -34,6 +34,12 @@ public class CaliberHomePage {
 		WebDriverWait wait = new WebDriverWait(CaliberGeneralGlueCode.driver, 20);
 		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("js-repo-pjax-container")));
 		assertEquals("https://github.com/revaturelabs/caliber/wiki#user-guide", CaliberGeneralGlueCode.driver.getCurrentUrl().toString());
+		
+		CaliberGeneralGlueCode.driver.navigate().back();
+		
+		Thread.sleep(1000);
+		CaliberGeneralGlueCode.driver.navigate().to("https://dev-caliber.revature.tech/caliber/#/trainer/home");
+		Thread.sleep(1000);
 		
 	}
 	
