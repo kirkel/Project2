@@ -16,7 +16,7 @@ public enum AssessmentCategory {
 	HTML("HTML"),
 	CSS("CSS"),
 	JAVASCRIPT("JavaScript"),
-	JQUERY("JQuery"),
+	JQUERY("jQuery"),
 	AJAX("AJAX"),
 	UNIX("UNIX"),
 	AWS("AWS"),
