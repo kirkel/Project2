@@ -5,29 +5,20 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { SeleniumComponent } from './selenium/selenium.component';
 import { JasmineComponent } from './jasmine/jasmine.component';
 import { ProtractorComponent } from './protractor/protractor.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TestngComponent } from './testng/testng.component';
 import { AboutComponent } from './about/about.component';
-
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent},
-  { path: 'selenium', component: SeleniumComponent},
-  { path: 'testng', component: TestngComponent},
-  { path: 'protractor', component: ProtractorComponent},
-  { path: 'jasmine', component: JasmineComponent},
+import { MyRoutes } from '../shared/app-routes';
+import { HttpRequestService } from './services/testng-service.service';
 
 
-]
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SeleniumComponent,
     JasmineComponent,
     ProtractorComponent,
     TestngComponent,
@@ -38,9 +29,9 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(MyRoutes)
   ],
-  providers: [],
+  providers: [HttpRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

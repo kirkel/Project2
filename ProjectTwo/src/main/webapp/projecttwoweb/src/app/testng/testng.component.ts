@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
-import 'rxjs/add/operator/catch';
+import { HttpRequestService } from '../services/testng-service.service';
+
+
 @Component({
   selector: 'app-testng',
   templateUrl: './testng.component.html',
@@ -9,17 +9,11 @@ import 'rxjs/add/operator/catch';
 })
 export class TestngComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpRequest: HttpRequestService) { }
 
   ngOnInit() {
   }
-  runTestNg(): void {
-    this.http.post('http://localhost:8080/ServletAngular/runtestng.do', {
-    }).subscribe(
-      res => {
-      console.log(res);
-    }
-  );
-  }
-
-}
+  onSubmit(): void {
+    this.httpRequest.runTestNG()
+          
+  }};

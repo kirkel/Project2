@@ -179,5 +179,9 @@ public class AssessBatch extends HomePage {
 		return driver.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr[" + order + "]/td[3]/input"));
 	}
 	
+	public WebElement saveAssessmentScores() {
+		return driver.findElement(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/div[3]/div/a"));
+	}
+	
 
 }

@@ -111,11 +111,14 @@ public class CaliberAssessBatch {
 	@When("^the user enters in the assessment scores and flags the appropiate users$")
 	public void the_user_enters_in_the_assessment_scores_and_flags_the_appropiate_users() throws Throwable {
 		List<WebElement> traineeElements = CaliberGeneralGlueCode.driver.findElements(By.xpath("//*[@id=\"trainer-assess-table\"]/div/div/ul/ul/table/tbody/tr"));
-		int numTrainees = traineeElements.size();
+		int numTrainees = traineeElements.size() + 1;
+		double min = 40.0;
+		double max = 100.0;
 		for(int i = 1; i < numTrainees; i++) {
-			double x = Math.random();
+			double x = Math.random() * (max - min);
 			assessBatch.enterAssessmentScore(i).sendKeys(String.valueOf(x));
 		}
+		assessBatch.saveAssessmentScores().click();
 	}
 
 	@Then("^the user should see the asessments with data in the table$")
@@ -152,6 +155,7 @@ public class CaliberAssessBatch {
 		assessBatch.getNewWeek().click();
 		Thread.sleep(1000);
 		assessBatch.getNewWeekYes().click();
+		Thread.sleep(2000);
 	}
 	
 	

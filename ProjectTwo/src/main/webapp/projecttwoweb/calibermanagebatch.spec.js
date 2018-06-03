@@ -28,38 +28,104 @@ describe('Caliber homepage check HTML elements are present', function() {
         });
         it('create batch plus symbol link' , function() {
             element(by.css("*[id='manage'] > div:nth-of-type(1) > div > div > ul > li:nth-of-type(3) > a > span")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='trainingName']")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='trainingName']")).sendKeys('Training Name');
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='trainingType'] > option:nth-of-type(2)")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='skillType'] > option:nth-of-type(2)")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='location'] > optgroup:nth-of-type(1) > option")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='trainer'] > option:nth-of-type(2)")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='co-trainer'] > option:nth-of-type(3)")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='start-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='end-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='goodGrade']")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='goodGrade']")).sendKeys('80');
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='borderlineGrade']")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='createBatchModal'] > div > div > div.modal-footer > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='checkBatchModal'] > div > div > div.modal-footer > button")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='start-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='end-date'] > span")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='end-date'] > span")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='end-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='end-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='end-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='end-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='end-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='end-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='end-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='createBatchModal'] > div > div > div.modal-footer > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='checkBatchModal'] > div > div > div.modal-footer > button")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='start-date'] > span")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='start-date'] > span")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='start-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='start-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='start-date'] > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='createBatchModal'] > div > div > div.modal-footer > input")).click();
+        });
+        it('create batch plus symbol link' , function() {
             element(by.css("*[id='checkBatchModal'] > div > div > div.modal-footer > button")).click();
             element(by.css("*[id='createBatchModal'] > div > div > div.modal-body > div:nth-of-type(4) > div:nth-of-type(1)")).click();
             element(by.css("*[id='co-trainer'] > option:nth-of-type(4)")).click();
