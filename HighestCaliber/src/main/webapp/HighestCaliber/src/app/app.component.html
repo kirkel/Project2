@@ -11,128 +11,74 @@
 <!--</nav>-->
 <!--</div>-->
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">
-      <img src="./assets/pictures/revature_r_button.svg" width="30" height="30" class="d-inline-block align-top"
-           alt="">
-      Highest Caliber
-    </a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">
+    <img src="./assets/pictures/revature_r_button.svg" width="30" height="30" class="d-inline-block align-top"
+         alt="">
+    Highest Caliber
+  </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="collapse navbar-collapse">
+  <div class="collapse navbar-collapse">
 
-      <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto">
 
-        <li class="nav-item active">
-          <a class="nav-link" href="/"> Home <span
-            class="sr-only">(current)</span></a>
-        </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/"> Home <span
+          class="sr-only">(current)</span></a>
+      </li>
 
-        <li class="nav-item dropdown">
+      <li class="nav-item dropdown">
 
-          <a class="nav-link dropdown-toggle" href="#" id="testDropdown" data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
-            Test
-          </a>
+        <a class="nav-link dropdown-toggle" href="#" id="testDropdown" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          Test
+        </a>
 
-          <div class="dropdown-menu">
+        <div class="dropdown-menu">
 
-            <form id=viewMyInfo action="#" method="post">
-              <a class="dropdown-item" onclick="document.getElementById('viewMyInfo').submit();" href="#">View/Edit
-                Info</a>
-            </form>
+          <form id=TestNG action="#" method="post">
+            <a class="dropdown-item" onclick="document.getElementById('TestNG').submit();" href="#">TestNG /
+              Cucumber</a>
+          </form>
 
-          </div>
+          <form id=Protractor action="#" method="post">
+            <a class="dropdown-item" onclick="document.getElementById('Protractor').submit();" href="#">Protractor /
+              Jasmine</a>
+          </form>
 
-        </li>
+        </div>
 
-        <li class="nav-item dropdown">
+      </li>
 
-          <a class="nav-link dropdown-toggle" href="#" id="reimbursementDropdownMenuLink"
-             data-toggle="dropdown"
-             aria-haspopup="true" aria-expanded="false">
-            Reimbursement
-          </a>
+    </ul>
 
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+  </div>
 
-            <form id=viewTestNG action="#" method="post">
-              <a class="dropdown-item" href="#">TestNG</a>
-            </form>
-
-            <form id=viewProtractor action="#" method="post">
-              <a class="dropdown-item" href="#">Protractor</a>
-            </form>
-
-
-            <!--<form id=viewMyReimbursement action="./myReimbursement.do" method="post">-->
-              <!--<a class="dropdown-item" onclick="document.getElementById('viewMyReimbursement').submit();"-->
-                 <!--href="#">View Reimbursements</a>-->
-            <!--</form>-->
-
-            <!--<form id=manageReimbursements action="./manageReimbursements.do" method="post">-->
-              <!--<a class="dropdown-item" onclick="document.getElementById('manageReimbursements').submit();"-->
-                 <!--href="#">Manage Reimbursements</a>-->
-            <!--</form>-->
-
-          </div>
-
-        </li>
-
-      </ul>
-
-      <form action="./logout.do" class="form-logout my-2 my-lg-0" method="post">
-        <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
-      </form>
-
-    </div>
-  </nav>
-
-
-
-<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-  <!--<a class="navbar-brand" href="#">Navbar</a>-->
-  <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
-    <!--<span class="navbar-toggler-icon"></span>-->
-  <!--</button>-->
-
-  <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-    <!--<ul class="navbar-nav mr-auto">-->
-      <!--<li class="nav-item active">-->
-        <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
-      <!--</li>-->
-      <!--<li class="nav-item">-->
-        <!--<a class="nav-link" href="#">Link</a>-->
-      <!--</li>-->
-      <!--<li class="nav-item dropdown">-->
-        <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-          <!--Dropdown-->
-        <!--</a>-->
-        <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-          <!--<a class="dropdown-item" href="#">Action</a>-->
-          <!--<a class="dropdown-item" href="#">Another action</a>-->
-          <!--<div class="dropdown-divider"></div>-->
-          <!--<a class="dropdown-item" href="#">Something else here</a>-->
-        <!--</div>-->
-      <!--</li>-->
-      <!--<li class="nav-item">-->
-        <!--<a class="nav-link disabled" href="#">Disabled</a>-->
-      <!--</li>-->
-    <!--</ul>-->
-    <!--<form class="form-inline my-2 my-lg-0">-->
-      <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-      <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-    <!--</form>-->
-  <!--</div>-->
-<!--</nav>-->
-
+</nav>
 
 <div class="container">
   <router-outlet>
   </router-outlet>
+</div>
+
+<div class="bg-dark text-white fixed-bottom">
+  <footer class="text-center font-small indigo pt-3">
+
+    <div class="col-sm-12 col-lg-12">
+
+      <h6 class="text-uppercase">Contact Us</h6>
+      <p class="text-center">
+        Address: 11730 Plaza America Dr #205,<br>
+        Reston, VA 20190
+        Phone: (703) 570-8181
+      </p>
+    </div>
+
+  </footer>
 </div>
 
 
