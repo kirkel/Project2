@@ -12,7 +12,7 @@
 <!--</div>-->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">
+  <a class="navbar-brand" [routerLink]='["/"]'>
     <img src="./assets/pictures/revature_r_button.svg" width="30" height="30" class="d-inline-block align-top"
          alt="">
     Highest Caliber
@@ -41,7 +41,7 @@
         <div class="dropdown-menu">
 
           <form id=TestNG action="#" method="post">
-            <a class="dropdown-item" onclick="document.getElementById('TestNG').submit();" href="#">TestNG /
+            <a class="dropdown-item"  href="#">TestNG /
               Cucumber</a>
           </form>
 
@@ -59,6 +59,9 @@
   </div>
 
 </nav>
+
+<button type="button" class="btn btn-primary">TestNG</button>
+<button type="button" class="btn btn-primary">Protractor</button>
 
 <div class="container">
   <router-outlet>
