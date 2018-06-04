@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [CaliberTest]">
+  <test name="Caliber Testing">
+    <classes>
+      <class name="com.revature.runners.TestNGRunner"/>
+    </classes>
+  </test> <!-- Caliber Testing -->
+</suite> <!-- Failed suite [CaliberTest] -->

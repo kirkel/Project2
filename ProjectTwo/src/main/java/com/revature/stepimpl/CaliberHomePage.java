@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import com.revature.pom.HomePage;
 
@@ -29,6 +30,7 @@ public class CaliberHomePage {
 		home.getUserGuide().click();
 	}
 	
+	@Test
 	@Then("^the user should see the github page for Caliber$")
 	public void the_user_should_see_the_github_page_for_Caliber() throws Throwable {
 		WebDriverWait wait = new WebDriverWait(CaliberGeneralGlueCode.driver, 20);
@@ -37,12 +39,15 @@ public class CaliberHomePage {
 		
 		CaliberGeneralGlueCode.driver.navigate().back();
 		
-		Thread.sleep(1000);
+		Thread.sleep(1500);
+		CaliberGeneralGlueCode.driver.navigate().to("https://dev-caliber.revature.tech/caliber/#/trainer/home");
+		Thread.sleep(2000);
 		CaliberGeneralGlueCode.driver.navigate().to("https://dev-caliber.revature.tech/caliber/#/trainer/home");
 		Thread.sleep(1000);
 		
 	}
 	
+	@Test
 	@Then("^the user clicks on the HTML(\\d+) Canvas element Cumulative Scores$")
 	public void the_user_clicks_on_the_HTML_Canvas_element_Cumulative_Scores(int arg1) throws Throwable {
 		Actions builder = new Actions(CaliberGeneralGlueCode.driver);

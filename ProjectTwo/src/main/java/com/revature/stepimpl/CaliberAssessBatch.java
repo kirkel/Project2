@@ -7,6 +7,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
 
 import com.revature.hibernate.entity.Assessment;
 import com.revature.hibernate.entity.Batch;
@@ -51,6 +52,7 @@ public class CaliberAssessBatch {
 		assessBatch.getOwnerDropdownSelection(currentBatch).click();
 	}
 
+	@Test
 	@Then("^the user should see the test batch on the assess batch page$")
 	public void the_user_should_see_the_test_batch_on_the_assess_batch_page() throws Throwable {
 		currentBatch = batchList.get(batchList.size() - 1);
@@ -138,7 +140,7 @@ public class CaliberAssessBatch {
 		assessBatch.getDeleteAssessmentDelete(1).click();
 		Thread.sleep(1000);
 	}
-	
+	@Test
 	@When("^the user adds a new week$")
 	public void the_user_adds_a_new_week() throws Throwable {
 		Thread.sleep(1000);

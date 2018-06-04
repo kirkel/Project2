@@ -49,9 +49,9 @@ public class CaliberGeneralGlueCode {
 		//This should be present on every page, and thus should always be true 
 		assertEquals("Caliber | Performance Management", pom.getPageTitle());
 		
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		driver.navigate().to("https://dev-caliber.revature.tech/caliber/#/trainer/home");
-		Thread.sleep(1000);
+		Thread.sleep(500);
 	}
 	
 	@Then("^the user returns back to the previous page$")

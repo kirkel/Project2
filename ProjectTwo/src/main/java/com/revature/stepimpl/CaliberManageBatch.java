@@ -14,6 +14,7 @@ import org.openqa.selenium.InvalidSelectorException;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import com.revature.hibernate.entity.Batch;
 import com.revature.hibernate.entity.Trainee;
@@ -77,6 +78,7 @@ public class CaliberManageBatch {
 	    manageBatch.getWebElementWithId("borderlineGrade").sendKeys(String.valueOf(currentBatch.getPassingGrade()));
 	}
 
+	@Test
 	@Then("^the user should see the correct data on the batch table$")
 	public void the_user_should_see_the_correct_data_on_the_batch_table() throws Throwable {
 	    Thread.sleep(3000);
@@ -145,10 +147,11 @@ public class CaliberManageBatch {
 	// -------------------------------- Import Batch --------------------------------
 	@Then("^the user clicks on the import batch button$")
 	public void the_user_clicks_on_the_import_batch_button() throws Throwable {
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		manageBatch.importBatch().click();
 	}
 
+	@Test
 	@Then("^the user should see the import batch screen$")
 	public void the_user_should_see_the_import_batch_screen() throws Throwable {
 		WebDriverWait wait = new WebDriverWait(CaliberGeneralGlueCode.driver, 20);
@@ -158,15 +161,15 @@ public class CaliberManageBatch {
 
 	@Then("^the user clicks on the X button on the import batch screen$")
 	public void the_user_clicks_on_the_X_button_on_the_import_batch_screen() throws Throwable {
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		manageBatch.exitImportBatch().click();
 	}
 
 	@Then("^the user imports a batch$")
 	public void the_user_imports_a_batch() throws Throwable {
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		manageBatch.getWebElementWithId("importId").click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 		manageBatch.getWebElementWithId("importId").click();
 	}
 
@@ -185,6 +188,7 @@ public class CaliberManageBatch {
 		Thread.sleep(500);
 	}
 
+	@Test
 	@Then("^the user should see the create batch screen$")
 	public void the_user_should_see_the_create_batch_screen() throws Throwable {
 		Thread.sleep(500);
@@ -212,16 +216,18 @@ public class CaliberManageBatch {
 	@Given("^the user clicks on save in create batch$")
 	public void the_user_clicks_on_save_in_create_batch() throws Throwable {
 		manageBatch.saveCreateNewBatch().click();
-		Thread.sleep(1000);
+		Thread.sleep(500);
 	}
 	
 	
 	// -------------------------------- Create New Batch Input Validation --------------------------------
+	@Test
 	@Given("^the training type \"([^\"]*)\" is valid$")
 	public void the_training_type_is_valid(String arg1) throws Throwable {
 		EnumUtils.isValidEnum(TrainingType.class, arg1);
 	}
 
+	@Test
 	@Given("^the skill type \"([^\"]*)\" is valid$")
 	public void the_skill_type_is_valid(String arg1) throws Throwable {
 		EnumUtils.isValidEnum(SkillType.class, arg1);
@@ -245,11 +251,13 @@ public class CaliberManageBatch {
 
 	}
 	
+	@Test
 	@Given("^the trainer \"([^\"]*)\" and cotrainer \"([^\"]*)\" are not the same$")
 	public void the_trainer_and_cotrainer_are_not_the_same(String arg1, String arg2) throws Throwable {
 		assertNotEquals(arg1, arg2);
 	}
 	
+	@Test
 	@Given("^the year \"([^\"]*)\" is valid$")
 	public void the_year_is_valid(String arg1) throws Throwable {
 		int year = 0;
@@ -263,6 +271,7 @@ public class CaliberManageBatch {
 		}
 	}
 	
+	@Test
 	@Given("^the start date \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" is before the end date \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
 	public void the_start_date_is_before_the_end_date(String arg1, String arg2, String arg3, String arg4, String arg5, String arg6) throws Throwable {
 		int startDay = 0, startMonth = 0, startYear = 0;
@@ -287,6 +296,7 @@ public class CaliberManageBatch {
 		}
 	}
 	
+	@Test
 	@Given("^the good grade \"([^\"]*)\" is higher than the passing grade \"([^\"]*)\"$")
 	public void the_good_grade_is_higher_than_the_passing_grade(String arg1, String arg2) throws Throwable {
 		int goodGrade = 0, passingGrade = 0;
@@ -366,6 +376,7 @@ public class CaliberManageBatch {
 		manageBatch.selectYearDropdown("2016");
 	}
 	
+	@Test
 	@Then("^the user should see the correct data given the starting year \"([^\"]*)\" and training name \"([^\"]*)\"$")
 	public void the_user_should_see_the_correct_data_given_the_starting_year_and_training_name(String arg1, String arg2) throws Throwable {
 		Thread.sleep(1000);
@@ -472,6 +483,7 @@ public class CaliberManageBatch {
 	}
 
 	// verify the project completion percent is valid
+	@Test
 	@Given("^the trainee has an optional project completion \"([^\"]*)\"$")
 	public void the_trainee_has_an_optional_project_completion(String arg1) throws Throwable {
 		if(Integer.parseInt(arg1) > 100 || Integer.parseInt(arg1) < 0) {

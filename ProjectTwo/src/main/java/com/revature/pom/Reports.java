@@ -31,6 +31,10 @@ public class Reports  extends POM{
 		return driver.findElement(By.xpath("//*[@id=\"caliber-container\"]/div/div/div[1]/div[1]/div/div/div[1]/i"));
 	}
 	
+	public WebElement getAssessmentDownload() {
+		return driver.findElement(By.xpath("//*[@id=\"caliber-container\"]/div[2]/div[1]/div[1]/div/div/div[1]/i"));
+	}
+	
 	public WebElement getBatchQCReportDownload() {
 		return driver.findElement(By.xpath("//*[@id=\"caliber-container\"]/div/div/div[1]/div[2]/div/div/div/div/div[1]/i"));
 	}
@@ -73,7 +77,8 @@ public class Reports  extends POM{
 	public WebElement getOwnerDropdownSelection(Batch batch) {
 		String trainer = batch.getTrainer().getName();
 		String shortYear = String.valueOf(batch.getStart_year());
-		String startDate = batch.getStart_month() + "/" + batch.getStart_day() + "/" + shortYear.substring(2, 4);
+		String startDay = String.valueOf(batch.getStart_day() + 1);
+		String startDate = batch.getStart_month() + "/" + startDay + "/" + shortYear.substring(2, 4);
 		String dropdownFinder = trainer + "								- "+ startDate;
 		
 		List<WebElement> dropdownElements = driver.findElements(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div/ul/li[2]/ul/li"));
@@ -114,7 +119,7 @@ public class Reports  extends POM{
 		if(traineeName.equals("All"))
 			return driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div/ul/li[4]/ul/li[1]/a"));
 		List<WebElement> traineeWebElements = driver.findElements(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div/ul/li[4]/ul/li"));
-		int traineeCount = traineeWebElements.size() - 1;
+		int traineeCount = traineeWebElements.size();
 		while(traineeCount > 0) {
 			WebElement toBeReturned = driver.findElement(By.xpath("/html/body/div/ui-view/ui-view/div[1]/div/div/ul/li[4]/ul/li[" + traineeCount + "]/a"));
 			System.out.println("Comparing " + traineeName + " and " + toBeReturned.getAttribute("innerHTML"));

@@ -25,10 +25,10 @@ public class Application {
 
 	public static void main(String[] args) {
 		
-		generateBatch(1, 1, true);
+		generateBatch(1, 3, false);
 		List<Batch> batchList = BatchService.getAllBatches();
 		Batch currentBatch = batchList.get(batchList.size() - 1);
-		generateWeekWithAssessments(currentBatch, 5, true, 1, true);
+		generateWeekWithAssessments(currentBatch, 1, false, 2, false);
 //		generateAllAssessmentScores();
 
 		

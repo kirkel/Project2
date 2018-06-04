@@ -2,6 +2,8 @@ package com.revature.stepimpl;
 
 import java.util.List;
 
+import org.testng.annotations.Test;
+
 import com.revature.hibernate.entity.Batch;
 import com.revature.hibernate.entity.Trainee;
 import com.revature.hibernate.services.BatchService;
@@ -65,11 +67,20 @@ public class CaliberReports {
 		
 	}
 	
+	@Test
 	@Then("^the user downloads all the data$")
 	public void the_user_downloads_all_the_data() throws Throwable {
 		reports.getBatchQCReportDownload().click();
 		reports.getCumuliativeScoresDownload().click();
 		reports.getTechnicalSkillsDownload().click();
 		reports.getWeeklyProgressDownload().click();
+	}
+	
+	@Test
+	@Then("^the user downloads all the trainee data$")
+	public void the_user_downloads_all_the_trainee_data() throws Throwable {
+		reports.getAssessmentDownload().click();
+		reports.getTechnicalSkillsDownload().click();
+		Thread.sleep(1000);
 	}
 }
